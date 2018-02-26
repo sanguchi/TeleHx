@@ -1,0 +1,36 @@
+-cp src
+-D analyzer-optimize
+-main Main
+# -dce no
+# --interp
+-debug
+
+--each
+
+-D nodejs
+-lib hxnodejs
+-js output/js/main.js
+
+--next
+
+-neko output/neko/main.n
+
+--next
+
+-php output/php/
+
+--next
+
+-cpp output/cpp/
+
+--next
+
+-java output/java/
+
+--next
+
+-cs output/cs/
+
+--next
+
+-cmd echo Compilation Finished
