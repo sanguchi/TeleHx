@@ -1,8 +1,9 @@
 -cp src
 -D analyzer-optimize
 -main Main
-# -dce no
+-dce no
 # --interp
+-cp src/telehx
 -debug
 
 --each
@@ -29,7 +30,7 @@
 
 --next
 
--cs output/cs/
+-hl output/hl/main.hl
 
 --next
 

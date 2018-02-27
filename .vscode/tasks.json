@@ -1,0 +1,48 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "identifier": "build haxe",
+            "label": "build haxe",
+            "type": "shell",
+            "command": "haxe build.hxml",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$haxe"
+        },
+        {
+            "label": "neko",
+            "type": "shell",
+            "command": "neko output/neko/main.n"
+        },
+        {
+            "label": "node",
+            "type": "shell",
+            "command": "node output/js/main.js"
+        },
+        {
+            "label": "php",
+            "type": "shell",
+            "command": "php output/php/index.php"
+        },
+        {
+            "label": "cpp",
+            "type": "shell",
+            "command": "./output/cpp/Main-debug"
+        },
+        {
+            "label": "java",
+            "type": "shell",
+            "command": "java -jar output/java/Main-Debug.jar"
+        },
+        {
+            "label": "hl",
+            "type": "shell",
+            "command": "hl output/hl/main.hl"
+        }
+    ]
+}

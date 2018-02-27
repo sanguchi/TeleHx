@@ -1,12 +1,20 @@
+import telehx.TeleHxBot;
+using telehx.TeleHxApi;
+
 class Main {
-    static function main() {
-        var url: String = "http://www.example.com/";
-        trace('Preparing to send http request to $url');
-        var req = new haxe.Http(url);
+    public function new() {
+        trace("Testing bot");
+        var token: String = "TESTTOKEN";
+        var bot = new TeleHxBot(token);
+        var req: haxe.Http = bot.getMe();
         req.onData = print;
-        req.request();    
+        req.onError = print;
+        req.request();
     }
-    static function print(data: String) {
+    static function main() {
+        new Main();
+    }
+    function print(data: String): Void {
         trace(data);
     }
 }
