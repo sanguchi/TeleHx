@@ -1,0 +1,82 @@
+package telehx;
+import telehx.TeleHxTypes
+
+{% set basic_types = {
+	'Integer': 'Int', 
+	'String': 'String', 
+	'Boolean': 'Bool', 
+	'Float number': 'Float', 
+	'True': 'Bool', 
+	'Float': 'Float'} 
+%}
+
+{# changes api objects names to append Hx in front ex: Message -> HxMessage #}
+{%- macro append_hx(name) -%}
+	Hx{{ name }}
+{%- endmacro -%}
+
+{# changes fields of type object to be wrapped into a HxApiResponse class ex: Message -> HxApiResponse<HxMessage> #}
+{%- macro api_wrapper(name) -%}
+	{%- set hx_name = append_hx(name) -%}
+	HxApiResponse<{{hx_name}}>
+{%- endmacro -%}
+
+{# Builds Arrays definitions based on the type text, ex: Array of Message -> Array<HxApiResponse<HxMessage>> #}
+{# It splits the string to choose the type, it should find: a basic type, an object type or another array type #}	
+{%- macro build_array_definition(name) -%}
+	{# Evaluate next word #}
+	{%- set current_word = name.replace('of ', '').split()[0] -%}
+	{# if we find an array, call this function recursively #}
+	{%- if current_word == 'Array' -%}
+		Array<{{ build_array_definition(' '.join(name.replace('of ', '').split()[1:])) }}>
+	{%- else -%}
+		{%- if current_word in basic_types.keys() -%}
+			{{ basic_types[current_word] }}
+		{%- else -%}
+			{{ api_wrapper(current_word) }}
+		{%- endif -%}
+	{%- endif -%}
+{%- endmacro -%}
+
+{# returns the correct basic type name ex: Boolean -> Bool #}
+{%- macro get_base_type(typename) -%}
+	{%- if typename in basic_types.keys() -%}
+		{{ basic_types[typename] }}
+	{%- else -%}
+		{%- if typename.split()[0] == 'Array' -%}
+			{{ build_array_definition(typename) }}
+		{%- else -%}
+			{{ api_wrapper(typename) }}
+		{%- endif -%}
+	{%- endif -%}
+{%- endmacro -%}
+
+class TeleHxMethods {
+	public static var telegramAPIURL: String = "https://api.telegram.org/bot":
+	
+	public static function sendApiRequest()
+}
+
+/*
+ * Base class that represents a response from telegram.
+ */
+typedef HxApiResponse<T> = {
+    ok: Bool,
+    result: T,
+}
+
+{% for telegram_type in telegram_types %}
+/*
+ * {{ telegram_type.description }}
+ */
+typedef {{ append_hx(telegram_type.name) }} = {
+	{% for field in telegram_type.fields %}
+
+	/*
+	 * {{ field.description }}
+	 */
+	{{ field.field }}: {{ get_base_type(field.field_type) }},
+    {% endfor %}
+}
+
+{% endfor %}

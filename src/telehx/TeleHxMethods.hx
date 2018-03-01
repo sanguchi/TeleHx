@@ -1,20 +1,15 @@
 package telehx;
 using telehx.TeleHxTypes;
 
-class TeleHxApi {
+class TeleHxMethods {
     public static var telegramAPIURL = "https://api.telegram.org/bot";
+
     public static function sendMessage(bot: TeleHxBot, chat_id: Int, message: String): String {
         var method = "sendMessage";
         return method;
     }
-    public static function getMe(bot: TeleHxBot): haxe.Http {
-        var reqURL = '${TeleHxApi.telegramAPIURL}${bot.token}/getMe';
-        trace(reqURL);
-        var request = new haxe.Http(reqURL);
-        return request;
-    }
 
-    public static function getMe2(bot: TeleHxBot, callback: HxUser -> Void): Void {
+    public static function getMe(bot: TeleHxBot, callback: HxUser -> Void): Void {
         var reqURL = '${TeleHxApi.telegramAPIURL}${bot.token}/getMe';
         trace('Sending request to ${reqURL}');
         var request = new haxe.Http(reqURL);

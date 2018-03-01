@@ -1,0 +1,2801 @@
+[
+    {
+        "name": "Update",
+        "description": "This object represents an incoming update.At most one of the optional parameters can be present in any given update.",
+        "fields": [
+            {
+                "field": "update_id",
+                "field_type": "Integer",
+                "description": "The update\u2018s unique identifier. Update identifiers start from a certain positive number and increase sequentially. This ID becomes especially handy if you\u2019re using Webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially."
+            },
+            {
+                "field": "message",
+                "field_type": "Message",
+                "description": "Optional. New incoming message of any kind \u2014 text, photo, sticker, etc."
+            },
+            {
+                "field": "edited_message",
+                "field_type": "Message",
+                "description": "Optional. New version of a message that is known to the bot and was edited"
+            },
+            {
+                "field": "channel_post",
+                "field_type": "Message",
+                "description": "Optional. New incoming channel post of any kind \u2014 text, photo, sticker, etc."
+            },
+            {
+                "field": "edited_channel_post",
+                "field_type": "Message",
+                "description": "Optional. New version of a channel post that is known to the bot and was edited"
+            },
+            {
+                "field": "inline_query",
+                "field_type": "InlineQuery",
+                "description": "Optional. New incoming inline query"
+            },
+            {
+                "field": "chosen_inline_result",
+                "field_type": "ChosenInlineResult",
+                "description": "Optional. The result of an inline query that was chosen by a user and sent to their chat partner. Please see our documentation on the feedback collecting for details on how to enable these updates for your bot."
+            },
+            {
+                "field": "callback_query",
+                "field_type": "CallbackQuery",
+                "description": "Optional. New incoming callback query"
+            },
+            {
+                "field": "shipping_query",
+                "field_type": "ShippingQuery",
+                "description": "Optional. New incoming shipping query. Only for invoices with flexible price"
+            },
+            {
+                "field": "pre_checkout_query",
+                "field_type": "PreCheckoutQuery",
+                "description": "Optional. New incoming pre-checkout query. Contains full information about checkout"
+            }
+        ]
+    },
+    {
+        "name": "WebhookInfo",
+        "description": "Contains information about the current status of a webhook.",
+        "fields": [
+            {
+                "field": "url",
+                "field_type": "String",
+                "description": "Webhook URL, may be empty if webhook is not set up"
+            },
+            {
+                "field": "has_custom_certificate",
+                "field_type": "Boolean",
+                "description": "True, if a custom certificate was provided for webhook certificate checks"
+            },
+            {
+                "field": "pending_update_count",
+                "field_type": "Integer",
+                "description": "Number of updates awaiting delivery"
+            },
+            {
+                "field": "last_error_date",
+                "field_type": "Integer",
+                "description": "Optional. Unix time for the most recent error that happened when trying to deliver an update via webhook"
+            },
+            {
+                "field": "last_error_message",
+                "field_type": "String",
+                "description": "Optional. Error message in human-readable format for the most recent error that happened when trying to deliver an update via webhook"
+            },
+            {
+                "field": "max_connections",
+                "field_type": "Integer",
+                "description": "Optional. Maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery"
+            },
+            {
+                "field": "allowed_updates",
+                "field_type": "Array of String",
+                "description": "Optional. A list of update types the bot is subscribed to. Defaults to all update types"
+            }
+        ]
+    },
+    {
+        "name": "User",
+        "description": "This object represents a Telegram user or bot.",
+        "fields": [
+            {
+                "field": "id",
+                "field_type": "Integer",
+                "description": "Unique identifier for this user or bot"
+            },
+            {
+                "field": "is_bot",
+                "field_type": "Boolean",
+                "description": "True, if this user is a bot"
+            },
+            {
+                "field": "first_name",
+                "field_type": "String",
+                "description": "User\u2018s or bot\u2019s first name"
+            },
+            {
+                "field": "last_name",
+                "field_type": "String",
+                "description": "Optional. User\u2018s or bot\u2019s last name"
+            },
+            {
+                "field": "username",
+                "field_type": "String",
+                "description": "Optional. User\u2018s or bot\u2019s username"
+            },
+            {
+                "field": "language_code",
+                "field_type": "String",
+                "description": "Optional. IETF language tag of the user's language"
+            }
+        ]
+    },
+    {
+        "name": "Chat",
+        "description": "This object represents a chat.",
+        "fields": [
+            {
+                "field": "id",
+                "field_type": "Integer",
+                "description": "Unique identifier for this chat. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+            },
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of chat, can be either \u201cprivate\u201d, \u201cgroup\u201d, \u201csupergroup\u201d or \u201cchannel\u201d"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title, for supergroups, channels and group chats"
+            },
+            {
+                "field": "username",
+                "field_type": "String",
+                "description": "Optional. Username, for private chats, supergroups and channels if available"
+            },
+            {
+                "field": "first_name",
+                "field_type": "String",
+                "description": "Optional. First name of the other party in a private chat"
+            },
+            {
+                "field": "last_name",
+                "field_type": "String",
+                "description": "Optional. Last name of the other party in a private chat"
+            },
+            {
+                "field": "all_members_are_administrators",
+                "field_type": "Boolean",
+                "description": "Optional. True if a group has \u2018All Members Are Admins\u2019 enabled."
+            },
+            {
+                "field": "photo",
+                "field_type": "ChatPhoto",
+                "description": "Optional. Chat photo. Returned only in getChat."
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Description, for supergroups and channel chats. Returned only in getChat."
+            },
+            {
+                "field": "invite_link",
+                "field_type": "String",
+                "description": "Optional. Chat invite link, for supergroups and channel chats. Returned only in getChat."
+            },
+            {
+                "field": "pinned_message",
+                "field_type": "Message",
+                "description": "Optional. Pinned message, for supergroups and channel chats. Returned only in getChat."
+            },
+            {
+                "field": "sticker_set_name",
+                "field_type": "String",
+                "description": "Optional. For supergroups, name of group sticker set. Returned only in getChat."
+            },
+            {
+                "field": "can_set_sticker_set",
+                "field_type": "Boolean",
+                "description": "Optional. True, if the bot can change the group sticker set. Returned only in getChat."
+            }
+        ]
+    },
+    {
+        "name": "Message",
+        "description": "This object represents a message.",
+        "fields": [
+            {
+                "field": "message_id",
+                "field_type": "Integer",
+                "description": "Unique message identifier inside this chat"
+            },
+            {
+                "field": "from",
+                "field_type": "User",
+                "description": "Optional. Sender, empty for messages sent to channels"
+            },
+            {
+                "field": "date",
+                "field_type": "Integer",
+                "description": "Date the message was sent in Unix time"
+            },
+            {
+                "field": "chat",
+                "field_type": "Chat",
+                "description": "Conversation the message belongs to"
+            },
+            {
+                "field": "forward_from",
+                "field_type": "User",
+                "description": "Optional. For forwarded messages, sender of the original message"
+            },
+            {
+                "field": "forward_from_chat",
+                "field_type": "Chat",
+                "description": "Optional. For messages forwarded from channels, information about the original channel"
+            },
+            {
+                "field": "forward_from_message_id",
+                "field_type": "Integer",
+                "description": "Optional. For messages forwarded from channels, identifier of the original message in the channel"
+            },
+            {
+                "field": "forward_signature",
+                "field_type": "String",
+                "description": "Optional. For messages forwarded from channels, signature of the post author if present"
+            },
+            {
+                "field": "forward_date",
+                "field_type": "Integer",
+                "description": "Optional. For forwarded messages, date the original message was sent in Unix time"
+            },
+            {
+                "field": "reply_to_message",
+                "field_type": "Message",
+                "description": "Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply."
+            },
+            {
+                "field": "edit_date",
+                "field_type": "Integer",
+                "description": "Optional. Date the message was last edited in Unix time"
+            },
+            {
+                "field": "media_group_id",
+                "field_type": "String",
+                "description": "Optional. The unique identifier of a media message group this message belongs to"
+            },
+            {
+                "field": "author_signature",
+                "field_type": "String",
+                "description": "Optional. Signature of the post author for messages in channels"
+            },
+            {
+                "field": "text",
+                "field_type": "String",
+                "description": "Optional. For text messages, the actual UTF-8 text of the message, 0-4096 characters."
+            },
+            {
+                "field": "entities",
+                "field_type": "Array of MessageEntity",
+                "description": "Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text"
+            },
+            {
+                "field": "caption_entities",
+                "field_type": "Array of MessageEntity",
+                "description": "Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption"
+            },
+            {
+                "field": "audio",
+                "field_type": "Audio",
+                "description": "Optional. Message is an audio file, information about the file"
+            },
+            {
+                "field": "document",
+                "field_type": "Document",
+                "description": "Optional. Message is a general file, information about the file"
+            },
+            {
+                "field": "game",
+                "field_type": "Game",
+                "description": "Optional. Message is a game, information about the game. More about games \u00bb"
+            },
+            {
+                "field": "photo",
+                "field_type": "Array of PhotoSize",
+                "description": "Optional. Message is a photo, available sizes of the photo"
+            },
+            {
+                "field": "sticker",
+                "field_type": "Sticker",
+                "description": "Optional. Message is a sticker, information about the sticker"
+            },
+            {
+                "field": "video",
+                "field_type": "Video",
+                "description": "Optional. Message is a video, information about the video"
+            },
+            {
+                "field": "voice",
+                "field_type": "Voice",
+                "description": "Optional. Message is a voice message, information about the file"
+            },
+            {
+                "field": "video_note",
+                "field_type": "VideoNote",
+                "description": "Optional. Message is a video note, information about the video message"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption for the audio, document, photo, video or voice, 0-200 characters"
+            },
+            {
+                "field": "contact",
+                "field_type": "Contact",
+                "description": "Optional. Message is a shared contact, information about the contact"
+            },
+            {
+                "field": "location",
+                "field_type": "Location",
+                "description": "Optional. Message is a shared location, information about the location"
+            },
+            {
+                "field": "venue",
+                "field_type": "Venue",
+                "description": "Optional. Message is a venue, information about the venue"
+            },
+            {
+                "field": "new_chat_members",
+                "field_type": "Array of User",
+                "description": "Optional. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)"
+            },
+            {
+                "field": "left_chat_member",
+                "field_type": "User",
+                "description": "Optional. A member was removed from the group, information about them (this member may be the bot itself)"
+            },
+            {
+                "field": "new_chat_title",
+                "field_type": "String",
+                "description": "Optional. A chat title was changed to this value"
+            },
+            {
+                "field": "new_chat_photo",
+                "field_type": "Array of PhotoSize",
+                "description": "Optional. A chat photo was change to this value"
+            },
+            {
+                "field": "delete_chat_photo",
+                "field_type": "True",
+                "description": "Optional. Service message: the chat photo was deleted"
+            },
+            {
+                "field": "group_chat_created",
+                "field_type": "True",
+                "description": "Optional. Service message: the group has been created"
+            },
+            {
+                "field": "supergroup_chat_created",
+                "field_type": "True",
+                "description": "Optional. Service message: the supergroup has been created. This field can\u2018t be received in a message coming through updates, because bot can\u2019t be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup."
+            },
+            {
+                "field": "channel_chat_created",
+                "field_type": "True",
+                "description": "Optional. Service message: the channel has been created. This field can\u2018t be received in a message coming through updates, because bot can\u2019t be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel."
+            },
+            {
+                "field": "migrate_to_chat_id",
+                "field_type": "Integer",
+                "description": "Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+            },
+            {
+                "field": "migrate_from_chat_id",
+                "field_type": "Integer",
+                "description": "Optional. The supergroup has been migrated from a group with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+            },
+            {
+                "field": "pinned_message",
+                "field_type": "Message",
+                "description": "Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply."
+            },
+            {
+                "field": "invoice",
+                "field_type": "Invoice",
+                "description": "Optional. Message is an invoice for a payment, information about the invoice. More about payments \u00bb"
+            },
+            {
+                "field": "successful_payment",
+                "field_type": "SuccessfulPayment",
+                "description": "Optional. Message is a service message about a successful payment, information about the payment. More about payments \u00bb"
+            },
+            {
+                "field": "connected_website",
+                "field_type": "String",
+                "description": "Optional. The domain name of the website on which the user has logged in. More about Telegram Login \u00bb"
+            }
+        ]
+    },
+    {
+        "name": "MessageEntity",
+        "description": "This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc. ",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the entity. Can be mention (@username), hashtag, bot_command, url, email, bold (bold text), italic (italic text), code (monowidth string), pre (monowidth block), text_link (for clickable text URLs), text_mention (for users without usernames)"
+            },
+            {
+                "field": "offset",
+                "field_type": "Integer",
+                "description": "Offset in UTF-16 code units to the start of the entity"
+            },
+            {
+                "field": "length",
+                "field_type": "Integer",
+                "description": "Length of the entity in UTF-16 code units"
+            },
+            {
+                "field": "url",
+                "field_type": "String",
+                "description": "Optional. For \u201ctext_link\u201d only, url that will be opened after user taps on the text"
+            },
+            {
+                "field": "user",
+                "field_type": "User",
+                "description": "Optional. For \u201ctext_mention\u201d only, the mentioned user"
+            }
+        ]
+    },
+    {
+        "name": "PhotoSize",
+        "description": "This object represents one size of a photo or a file / sticker thumbnail.",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique identifier for this file"
+            },
+            {
+                "field": "width",
+                "field_type": "Integer",
+                "description": "Photo width"
+            },
+            {
+                "field": "height",
+                "field_type": "Integer",
+                "description": "Photo height"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "Audio",
+        "description": "This object represents an audio file to be treated as music by the Telegram clients.",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique identifier for this file"
+            },
+            {
+                "field": "duration",
+                "field_type": "Integer",
+                "description": "Duration of the audio in seconds as defined by sender"
+            },
+            {
+                "field": "performer",
+                "field_type": "String",
+                "description": "Optional. Performer of the audio as defined by sender or by audio tags"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title of the audio as defined by sender or by audio tags"
+            },
+            {
+                "field": "mime_type",
+                "field_type": "String",
+                "description": "Optional. MIME type of the file as defined by sender"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "Document",
+        "description": "This object represents a general file (as opposed to photos, voice messages and audio files).",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique file identifier"
+            },
+            {
+                "field": "thumb",
+                "field_type": "PhotoSize",
+                "description": "Optional. Document thumbnail as defined by sender"
+            },
+            {
+                "field": "file_name",
+                "field_type": "String",
+                "description": "Optional. Original filename as defined by sender"
+            },
+            {
+                "field": "mime_type",
+                "field_type": "String",
+                "description": "Optional. MIME type of the file as defined by sender"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "Video",
+        "description": "This object represents a video file.",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique identifier for this file"
+            },
+            {
+                "field": "width",
+                "field_type": "Integer",
+                "description": "Video width as defined by sender"
+            },
+            {
+                "field": "height",
+                "field_type": "Integer",
+                "description": "Video height as defined by sender"
+            },
+            {
+                "field": "duration",
+                "field_type": "Integer",
+                "description": "Duration of the video in seconds as defined by sender"
+            },
+            {
+                "field": "thumb",
+                "field_type": "PhotoSize",
+                "description": "Optional. Video thumbnail"
+            },
+            {
+                "field": "mime_type",
+                "field_type": "String",
+                "description": "Optional. Mime type of a file as defined by sender"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "Voice",
+        "description": "This object represents a voice note.",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique identifier for this file"
+            },
+            {
+                "field": "duration",
+                "field_type": "Integer",
+                "description": "Duration of the audio in seconds as defined by sender"
+            },
+            {
+                "field": "mime_type",
+                "field_type": "String",
+                "description": "Optional. MIME type of the file as defined by sender"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "VideoNote",
+        "description": "This object represents a video message (available in Telegram apps as of v.4.0).",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique identifier for this file"
+            },
+            {
+                "field": "length",
+                "field_type": "Integer",
+                "description": "Video width and height as defined by sender"
+            },
+            {
+                "field": "duration",
+                "field_type": "Integer",
+                "description": "Duration of the video in seconds as defined by sender"
+            },
+            {
+                "field": "thumb",
+                "field_type": "PhotoSize",
+                "description": "Optional. Video thumbnail"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "Contact",
+        "description": "This object represents a phone contact.",
+        "fields": [
+            {
+                "field": "phone_number",
+                "field_type": "String",
+                "description": "Contact's phone number"
+            },
+            {
+                "field": "first_name",
+                "field_type": "String",
+                "description": "Contact's first name"
+            },
+            {
+                "field": "last_name",
+                "field_type": "String",
+                "description": "Optional. Contact's last name"
+            },
+            {
+                "field": "user_id",
+                "field_type": "Integer",
+                "description": "Optional. Contact's user identifier in Telegram"
+            }
+        ]
+    },
+    {
+        "name": "Location",
+        "description": "This object represents a point on the map.",
+        "fields": [
+            {
+                "field": "longitude",
+                "field_type": "Float",
+                "description": "Longitude as defined by sender"
+            },
+            {
+                "field": "latitude",
+                "field_type": "Float",
+                "description": "Latitude as defined by sender"
+            }
+        ]
+    },
+    {
+        "name": "Venue",
+        "description": "This object represents a venue.",
+        "fields": [
+            {
+                "field": "location",
+                "field_type": "Location",
+                "description": "Venue location"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Name of the venue"
+            },
+            {
+                "field": "address",
+                "field_type": "String",
+                "description": "Address of the venue"
+            },
+            {
+                "field": "foursquare_id",
+                "field_type": "String",
+                "description": "Optional. Foursquare identifier of the venue"
+            }
+        ]
+    },
+    {
+        "name": "UserProfilePhotos",
+        "description": "This object represent a user's profile pictures.",
+        "fields": [
+            {
+                "field": "total_count",
+                "field_type": "Integer",
+                "description": "Total number of profile pictures the target user has"
+            },
+            {
+                "field": "photos",
+                "field_type": "Array of Array of PhotoSize",
+                "description": "Requested profile pictures (in up to 4 sizes each)"
+            }
+        ]
+    },
+    {
+        "name": "File",
+        "description": "This object represents a file ready to be downloaded. The file can be downloaded via the link https://api.telegram.org/file/bot<token>/<file_path>. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling getFile.",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique identifier for this file"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size, if known"
+            },
+            {
+                "field": "file_path",
+                "field_type": "String",
+                "description": "Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file."
+            }
+        ]
+    },
+    {
+        "name": "ReplyKeyboardMarkup",
+        "description": "This object represents a custom keyboard with reply options (see Introduction to bots for details and examples).",
+        "fields": [
+            {
+                "field": "keyboard",
+                "field_type": "Array of Array of KeyboardButton",
+                "description": "Array of button rows, each represented by an Array of KeyboardButton objects"
+            },
+            {
+                "field": "resize_keyboard",
+                "field_type": "Boolean",
+                "description": "Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboard."
+            },
+            {
+                "field": "one_time_keyboard",
+                "field_type": "Boolean",
+                "description": "Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat \u2013 the user can press a special button in the input field to see the custom keyboard again. Defaults to false."
+            },
+            {
+                "field": "selective",
+                "field_type": "Boolean",
+                "description": "Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.Example: A user requests to change the bot\u2018s language, bot replies to the request with a keyboard to select the new language. Other users in the group don\u2019t see the keyboard."
+            }
+        ]
+    },
+    {
+        "name": "KeyboardButton",
+        "description": "This object represents one button of the reply keyboard. For simple text buttons String can be used instead of this object to specify text of the button. Optional fields are mutually exclusive.",
+        "fields": [
+            {
+                "field": "text",
+                "field_type": "String",
+                "description": "Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed"
+            },
+            {
+                "field": "request_contact",
+                "field_type": "Boolean",
+                "description": "Optional. If True, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only"
+            },
+            {
+                "field": "request_location",
+                "field_type": "Boolean",
+                "description": "Optional. If True, the user's current location will be sent when the button is pressed. Available in private chats only"
+            }
+        ]
+    },
+    {
+        "name": "ReplyKeyboardRemove",
+        "description": "Upon receiving a message with this object, Telegram clients will remove the current custom keyboard and display the default letter-keyboard. By default, custom keyboards are displayed until a new keyboard is sent by a bot. An exception is made for one-time keyboards that are hidden immediately after the user presses a button (see ReplyKeyboardMarkup).",
+        "fields": [
+            {
+                "field": "remove_keyboard",
+                "field_type": "True",
+                "description": "Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup)"
+            },
+            {
+                "field": "selective",
+                "field_type": "Boolean",
+                "description": "Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.Example: A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet."
+            }
+        ]
+    },
+    {
+        "name": "InlineKeyboardMarkup",
+        "description": "This object represents an inline keyboard that appears right next to the message it belongs to.",
+        "fields": [
+            {
+                "field": "inline_keyboard",
+                "field_type": "Array of Array of InlineKeyboardButton",
+                "description": "Array of button rows, each represented by an Array of InlineKeyboardButton objects"
+            }
+        ]
+    },
+    {
+        "name": "InlineKeyboardButton",
+        "description": "This object represents one button of an inline keyboard. You must use exactly one of the optional fields.",
+        "fields": [
+            {
+                "field": "text",
+                "field_type": "String",
+                "description": "Label text on the button"
+            },
+            {
+                "field": "url",
+                "field_type": "String",
+                "description": "Optional. HTTP url to be opened when button is pressed"
+            },
+            {
+                "field": "callback_data",
+                "field_type": "String",
+                "description": "Optional. Data to be sent in a callback query to the bot when button is pressed, 1-64 bytes"
+            },
+            {
+                "field": "switch_inline_query",
+                "field_type": "String",
+                "description": "Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot\u2018s username and the specified inline query in the input field. Can be empty, in which case just the bot\u2019s username will be inserted.Note: This offers an easy way for users to start using your bot in inline mode when they are currently in a private chat with it. Especially useful when combined with switch_pm\u2026 actions \u2013 in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen."
+            },
+            {
+                "field": "switch_inline_query_current_chat",
+                "field_type": "String",
+                "description": "Optional. If set, pressing the button will insert the bot\u2018s username and the specified inline query in the current chat's input field. Can be empty, in which case only the bot\u2019s username will be inserted.This offers a quick way for the user to open your bot in inline mode in the same chat \u2013 good for selecting something from multiple options."
+            },
+            {
+                "field": "callback_game",
+                "field_type": "CallbackGame",
+                "description": "Optional. Description of the game that will be launched when the user presses the button.NOTE: This type of button must always be the first button in the first row."
+            },
+            {
+                "field": "pay",
+                "field_type": "Boolean",
+                "description": "Optional. Specify True, to send a Pay button.NOTE: This type of button must always be the first button in the first row."
+            }
+        ]
+    },
+    {
+        "name": "CallbackQuery",
+        "description": "This object represents an incoming callback query from a callback button in an inline keyboard. If the button that originated the query was attached to a message sent by the bot, the field message will be present. If the button was attached to a message sent via the bot (in inline mode), the field inline_message_id will be present. Exactly one of the fields data or game_short_name will be present.",
+        "fields": [
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this query"
+            },
+            {
+                "field": "from",
+                "field_type": "User",
+                "description": "Sender"
+            },
+            {
+                "field": "message",
+                "field_type": "Message",
+                "description": "Optional. Message with the callback button that originated the query. Note that message content and message date will not be available if the message is too old"
+            },
+            {
+                "field": "inline_message_id",
+                "field_type": "String",
+                "description": "Optional. Identifier of the message sent via the bot in inline mode, that originated the query."
+            },
+            {
+                "field": "chat_instance",
+                "field_type": "String",
+                "description": "Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent. Useful for high scores in games."
+            },
+            {
+                "field": "data",
+                "field_type": "String",
+                "description": "Optional. Data associated with the callback button. Be aware that a bad client can send arbitrary data in this field."
+            },
+            {
+                "field": "game_short_name",
+                "field_type": "String",
+                "description": "Optional. Short name of a Game to be returned, serves as the unique identifier for the game"
+            }
+        ]
+    },
+    {
+        "name": "ForceReply",
+        "description": "Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot\u2018s message and tapped \u2019Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode.",
+        "fields": [
+            {
+                "field": "force_reply",
+                "field_type": "True",
+                "description": "Shows reply interface to the user, as if they manually selected the bot\u2018s message and tapped \u2019Reply'"
+            },
+            {
+                "field": "selective",
+                "field_type": "Boolean",
+                "description": "Optional. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message."
+            }
+        ]
+    },
+    {
+        "name": "ChatPhoto",
+        "description": "This object represents a chat photo.",
+        "fields": [
+            {
+                "field": "small_file_id",
+                "field_type": "String",
+                "description": "Unique file identifier of small (160x160) chat photo. This file_id can be used only for photo download."
+            },
+            {
+                "field": "big_file_id",
+                "field_type": "String",
+                "description": "Unique file identifier of big (640x640) chat photo. This file_id can be used only for photo download."
+            }
+        ]
+    },
+    {
+        "name": "ChatMember",
+        "description": "This object contains information about one member of a chat.",
+        "fields": [
+            {
+                "field": "user",
+                "field_type": "User",
+                "description": "Information about the user"
+            },
+            {
+                "field": "status",
+                "field_type": "String",
+                "description": "The member's status in the chat. Can be \u201ccreator\u201d, \u201cadministrator\u201d, \u201cmember\u201d, \u201crestricted\u201d, \u201cleft\u201d or \u201ckicked\u201d"
+            },
+            {
+                "field": "until_date",
+                "field_type": "Integer",
+                "description": "Optional. Restricted and kicked only. Date when restrictions will be lifted for this user, unix time"
+            },
+            {
+                "field": "can_be_edited",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the bot is allowed to edit administrator privileges of that user"
+            },
+            {
+                "field": "can_change_info",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can change the chat title, photo and other settings"
+            },
+            {
+                "field": "can_post_messages",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can post in the channel, channels only"
+            },
+            {
+                "field": "can_edit_messages",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can edit messages of other users and can pin messages, channels only"
+            },
+            {
+                "field": "can_delete_messages",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can delete messages of other users"
+            },
+            {
+                "field": "can_invite_users",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can invite new users to the chat"
+            },
+            {
+                "field": "can_restrict_members",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can restrict, ban or unban chat members"
+            },
+            {
+                "field": "can_pin_messages",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can pin messages, supergroups only"
+            },
+            {
+                "field": "can_promote_members",
+                "field_type": "Boolean",
+                "description": "Optional. Administrators only. True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
+            },
+            {
+                "field": "can_send_messages",
+                "field_type": "Boolean",
+                "description": "Optional. Restricted only. True, if the user can send text messages, contacts, locations and venues"
+            },
+            {
+                "field": "can_send_media_messages",
+                "field_type": "Boolean",
+                "description": "Optional. Restricted only. True, if the user can send audios, documents, photos, videos, video notes and voice notes, implies can_send_messages"
+            },
+            {
+                "field": "can_send_other_messages",
+                "field_type": "Boolean",
+                "description": "Optional. Restricted only. True, if the user can send animations, games, stickers and use inline bots, implies can_send_media_messages"
+            },
+            {
+                "field": "can_add_web_page_previews",
+                "field_type": "Boolean",
+                "description": "Optional. Restricted only. True, if user may add web page previews to his messages, implies can_send_media_messages"
+            }
+        ]
+    },
+    {
+        "name": "ResponseParameters",
+        "description": "Contains information about why a request was unsuccessful.",
+        "fields": [
+            {
+                "field": "migrate_to_chat_id",
+                "field_type": "Integer",
+                "description": "Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+            },
+            {
+                "field": "retry_after",
+                "field_type": "Integer",
+                "description": "Optional. In case of exceeding flood control, the number of seconds left to wait before the request can be repeated"
+            }
+        ]
+    },
+    {
+        "name": "InputMedia",
+        "description": "This object represents the content of a media message to be sent. It should be one of",
+        "fields": []
+    },
+    {
+        "name": "InputMediaPhoto",
+        "description": "Represents a photo to be sent.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be photo"
+            },
+            {
+                "field": "media",
+                "field_type": "String",
+                "description": "File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass \"attach://<file_attach_name>\" to upload a new one using multipart/form-data under <file_attach_name> name. More info on Sending Files \u00bb"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the photo to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            }
+        ]
+    },
+    {
+        "name": "InputMediaVideo",
+        "description": "Represents a video to be sent.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be video"
+            },
+            {
+                "field": "media",
+                "field_type": "String",
+                "description": "File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass \"attach://<file_attach_name>\" to upload a new one using multipart/form-data under <file_attach_name> name. More info on Sending Files \u00bb"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the video to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "width",
+                "field_type": "Integer",
+                "description": "Optional. Video width"
+            },
+            {
+                "field": "height",
+                "field_type": "Integer",
+                "description": "Optional. Video height"
+            },
+            {
+                "field": "duration",
+                "field_type": "Integer",
+                "description": "Optional. Video duration"
+            },
+            {
+                "field": "supports_streaming",
+                "field_type": "Boolean",
+                "description": "Optional. Pass True, if the uploaded video is suitable for streaming"
+            }
+        ]
+    },
+    {
+        "name": "InputFile",
+        "description": "This object represents the contents of a file to be uploaded. Must be posted using multipart/form-data in the usual way that files are uploaded via the browser.",
+        "fields": []
+    },
+    {
+        "name": "Sticker",
+        "description": "This object represents a sticker.",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique identifier for this file"
+            },
+            {
+                "field": "width",
+                "field_type": "Integer",
+                "description": "Sticker width"
+            },
+            {
+                "field": "height",
+                "field_type": "Integer",
+                "description": "Sticker height"
+            },
+            {
+                "field": "thumb",
+                "field_type": "PhotoSize",
+                "description": "Optional. Sticker thumbnail in the .webp or .jpg format"
+            },
+            {
+                "field": "emoji",
+                "field_type": "String",
+                "description": "Optional. Emoji associated with the sticker"
+            },
+            {
+                "field": "set_name",
+                "field_type": "String",
+                "description": "Optional. Name of the sticker set to which the sticker belongs"
+            },
+            {
+                "field": "mask_position",
+                "field_type": "MaskPosition",
+                "description": "Optional. For mask stickers, the position where the mask should be placed"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "StickerSet",
+        "description": "This object represents a sticker set.",
+        "fields": [
+            {
+                "field": "name",
+                "field_type": "String",
+                "description": "Sticker set name"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Sticker set title"
+            },
+            {
+                "field": "contains_masks",
+                "field_type": "Boolean",
+                "description": "True, if the sticker set contains masks"
+            },
+            {
+                "field": "stickers",
+                "field_type": "Array of Sticker",
+                "description": "List of all set stickers"
+            }
+        ]
+    },
+    {
+        "name": "MaskPosition",
+        "description": "This object describes the position on faces where a mask should be placed by default.",
+        "fields": [
+            {
+                "field": "point",
+                "field_type": "String",
+                "description": "The part of the face relative to which the mask should be placed. One of \u201cforehead\u201d, \u201ceyes\u201d, \u201cmouth\u201d, or \u201cchin\u201d."
+            },
+            {
+                "field": "x_shift",
+                "field_type": "Float number",
+                "description": "Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place mask just to the left of the default mask position."
+            },
+            {
+                "field": "y_shift",
+                "field_type": "Float number",
+                "description": "Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. For example, 1.0 will place the mask just below the default mask position."
+            },
+            {
+                "field": "scale",
+                "field_type": "Float number",
+                "description": "Mask scaling coefficient. For example, 2.0 means double size."
+            }
+        ]
+    },
+    {
+        "name": "InlineQuery",
+        "description": "This object represents an incoming inline query. When the user sends an empty query, your bot could return some default or trending results.",
+        "fields": [
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this query"
+            },
+            {
+                "field": "from",
+                "field_type": "User",
+                "description": "Sender"
+            },
+            {
+                "field": "location",
+                "field_type": "Location",
+                "description": "Optional. Sender location, only for bots that request user location"
+            },
+            {
+                "field": "query",
+                "field_type": "String",
+                "description": "Text of the query (up to 512 characters)"
+            },
+            {
+                "field": "offset",
+                "field_type": "String",
+                "description": "Offset of the results to be returned, can be controlled by the bot"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResult",
+        "description": "This object represents one result of an inline query. Telegram clients currently support results of the following 20 types:",
+        "fields": []
+    },
+    {
+        "name": "InlineQueryResultArticle",
+        "description": "Represents a link to an article or web page.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be article"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 Bytes"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title of the result"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Content of the message to be sent"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "url",
+                "field_type": "String",
+                "description": "Optional. URL of the result"
+            },
+            {
+                "field": "hide_url",
+                "field_type": "Boolean",
+                "description": "Optional. Pass True, if you don't want the URL to be shown in the message"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Short description of the result"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "Optional. Url of the thumbnail for the result"
+            },
+            {
+                "field": "thumb_width",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail width"
+            },
+            {
+                "field": "thumb_height",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail height"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultPhoto",
+        "description": "Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be photo"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "photo_url",
+                "field_type": "String",
+                "description": "A valid URL of the photo. Photo must be in jpeg format. Photo size must not exceed 5MB"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "URL of the thumbnail for the photo"
+            },
+            {
+                "field": "photo_width",
+                "field_type": "Integer",
+                "description": "Optional. Width of the photo"
+            },
+            {
+                "field": "photo_height",
+                "field_type": "Integer",
+                "description": "Optional. Height of the photo"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title for the result"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Short description of the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the photo to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the photo"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultGif",
+        "description": "Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be gif"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "gif_url",
+                "field_type": "String",
+                "description": "A valid URL for the GIF file. File size must not exceed 1MB"
+            },
+            {
+                "field": "gif_width",
+                "field_type": "Integer",
+                "description": "Optional. Width of the GIF"
+            },
+            {
+                "field": "gif_height",
+                "field_type": "Integer",
+                "description": "Optional. Height of the GIF"
+            },
+            {
+                "field": "gif_duration",
+                "field_type": "Integer",
+                "description": "Optional. Duration of the GIF"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "URL of the static thumbnail for the result (jpeg or gif)"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title for the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the GIF file to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the GIF animation"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultMpeg4Gif",
+        "description": "Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be mpeg4_gif"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "mpeg4_url",
+                "field_type": "String",
+                "description": "A valid URL for the MP4 file. File size must not exceed 1MB"
+            },
+            {
+                "field": "mpeg4_width",
+                "field_type": "Integer",
+                "description": "Optional. Video width"
+            },
+            {
+                "field": "mpeg4_height",
+                "field_type": "Integer",
+                "description": "Optional. Video height"
+            },
+            {
+                "field": "mpeg4_duration",
+                "field_type": "Integer",
+                "description": "Optional. Video duration"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "URL of the static thumbnail (jpeg or gif) for the result"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title for the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the MPEG-4 file to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the video animation"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultVideo",
+        "description": "Represents a link to a page containing an embedded video player or a video file. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the video.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be video"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "video_url",
+                "field_type": "String",
+                "description": "A valid URL for the embedded video player or video file"
+            },
+            {
+                "field": "mime_type",
+                "field_type": "String",
+                "description": "Mime type of the content of video url, \u201ctext/html\u201d or \u201cvideo/mp4\u201d"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "URL of the thumbnail (jpeg only) for the video"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title for the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the video to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "video_width",
+                "field_type": "Integer",
+                "description": "Optional. Video width"
+            },
+            {
+                "field": "video_height",
+                "field_type": "Integer",
+                "description": "Optional. Video height"
+            },
+            {
+                "field": "video_duration",
+                "field_type": "Integer",
+                "description": "Optional. Video duration in seconds"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Short description of the result"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video)."
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultAudio",
+        "description": "Represents a link to an mp3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the audio.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be audio"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "audio_url",
+                "field_type": "String",
+                "description": "A valid URL for the audio file"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "performer",
+                "field_type": "String",
+                "description": "Optional. Performer"
+            },
+            {
+                "field": "audio_duration",
+                "field_type": "Integer",
+                "description": "Optional. Audio duration in seconds"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the audio"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultVoice",
+        "description": "Represents a link to a voice recording in an .ogg container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the the voice message.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be voice"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "voice_url",
+                "field_type": "String",
+                "description": "A valid URL for the voice recording"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Recording title"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "voice_duration",
+                "field_type": "Integer",
+                "description": "Optional. Recording duration in seconds"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the voice recording"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultDocument",
+        "description": "Represents a link to a file. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the file. Currently, only .PDF and .ZIP files can be sent using this method.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be document"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title for the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the document to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "document_url",
+                "field_type": "String",
+                "description": "A valid URL for the file"
+            },
+            {
+                "field": "mime_type",
+                "field_type": "String",
+                "description": "Mime type of the content of the file, either \u201capplication/pdf\u201d or \u201capplication/zip\u201d"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Short description of the result"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the file"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "Optional. URL of the thumbnail (jpeg only) for the file"
+            },
+            {
+                "field": "thumb_width",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail width"
+            },
+            {
+                "field": "thumb_height",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail height"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultLocation",
+        "description": "Represents a location on a map. By default, the location will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the location.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be location"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 Bytes"
+            },
+            {
+                "field": "latitude",
+                "field_type": "Float number",
+                "description": "Location latitude in degrees"
+            },
+            {
+                "field": "longitude",
+                "field_type": "Float number",
+                "description": "Location longitude in degrees"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Location title"
+            },
+            {
+                "field": "live_period",
+                "field_type": "Integer",
+                "description": "Optional. Period in seconds for which the location can be updated, should be between 60 and 86400."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the location"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "Optional. Url of the thumbnail for the result"
+            },
+            {
+                "field": "thumb_width",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail width"
+            },
+            {
+                "field": "thumb_height",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail height"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultVenue",
+        "description": "Represents a venue. By default, the venue will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the venue.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be venue"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 Bytes"
+            },
+            {
+                "field": "latitude",
+                "field_type": "Float",
+                "description": "Latitude of the venue location in degrees"
+            },
+            {
+                "field": "longitude",
+                "field_type": "Float",
+                "description": "Longitude of the venue location in degrees"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title of the venue"
+            },
+            {
+                "field": "address",
+                "field_type": "String",
+                "description": "Address of the venue"
+            },
+            {
+                "field": "foursquare_id",
+                "field_type": "String",
+                "description": "Optional. Foursquare identifier of the venue if known"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the venue"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "Optional. Url of the thumbnail for the result"
+            },
+            {
+                "field": "thumb_width",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail width"
+            },
+            {
+                "field": "thumb_height",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail height"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultContact",
+        "description": "Represents a contact with a phone number. By default, this contact will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the contact.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be contact"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 Bytes"
+            },
+            {
+                "field": "phone_number",
+                "field_type": "String",
+                "description": "Contact's phone number"
+            },
+            {
+                "field": "first_name",
+                "field_type": "String",
+                "description": "Contact's first name"
+            },
+            {
+                "field": "last_name",
+                "field_type": "String",
+                "description": "Optional. Contact's last name"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the contact"
+            },
+            {
+                "field": "thumb_url",
+                "field_type": "String",
+                "description": "Optional. Url of the thumbnail for the result"
+            },
+            {
+                "field": "thumb_width",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail width"
+            },
+            {
+                "field": "thumb_height",
+                "field_type": "Integer",
+                "description": "Optional. Thumbnail height"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultGame",
+        "description": "Represents a Game.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be game"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "game_short_name",
+                "field_type": "String",
+                "description": "Short name of the game"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedPhoto",
+        "description": "Represents a link to a photo stored on the Telegram servers. By default, this photo will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be photo"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "photo_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier of the photo"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title for the result"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Short description of the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the photo to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the photo"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedGif",
+        "description": "Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with specified content instead of the animation.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be gif"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "gif_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier for the GIF file"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title for the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the GIF file to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the GIF animation"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedMpeg4Gif",
+        "description": "Represents a link to a video animation (H.264/MPEG-4 AVC video without sound) stored on the Telegram servers. By default, this animated MPEG-4 file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be mpeg4_gif"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "mpeg4_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier for the MP4 file"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Optional. Title for the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the MPEG-4 file to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the video animation"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedSticker",
+        "description": "Represents a link to a sticker stored on the Telegram servers. By default, this sticker will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the sticker.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be sticker"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "sticker_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier of the sticker"
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the sticker"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedDocument",
+        "description": "Represents a link to a file stored on the Telegram servers. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the file.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be document"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title for the result"
+            },
+            {
+                "field": "document_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier for the file"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Short description of the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the document to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the file"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedVideo",
+        "description": "Represents a link to a video file stored on the Telegram servers. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the video.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be video"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "video_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier for the video file"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title for the result"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Optional. Short description of the result"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption of the video to be sent, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the video"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedVoice",
+        "description": "Represents a link to a voice message stored on the Telegram servers. By default, this voice message will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the voice message.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be voice"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "voice_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier for the voice message"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Voice message title"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the voice message"
+            }
+        ]
+    },
+    {
+        "name": "InlineQueryResultCachedAudio",
+        "description": "Represents a link to an mp3 audio file stored on the Telegram servers. By default, this audio file will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the audio.",
+        "fields": [
+            {
+                "field": "type",
+                "field_type": "String",
+                "description": "Type of the result, must be audio"
+            },
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique identifier for this result, 1-64 bytes"
+            },
+            {
+                "field": "audio_file_id",
+                "field_type": "String",
+                "description": "A valid file identifier for the audio file"
+            },
+            {
+                "field": "caption",
+                "field_type": "String",
+                "description": "Optional. Caption, 0-200 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+            },
+            {
+                "field": "reply_markup",
+                "field_type": "InlineKeyboardMarkup",
+                "description": "Optional. Inline keyboard attached to the message"
+            },
+            {
+                "field": "input_message_content",
+                "field_type": "InputMessageContent",
+                "description": "Optional. Content of the message to be sent instead of the audio"
+            }
+        ]
+    },
+    {
+        "name": "InputMessageContent",
+        "description": "This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following 4 types:",
+        "fields": []
+    },
+    {
+        "name": "InputTextMessageContent",
+        "description": "Represents the content of a text message to be sent as the result of an inline query. ",
+        "fields": [
+            {
+                "field": "message_text",
+                "field_type": "String",
+                "description": "Text of the message to be sent, 1-4096 characters"
+            },
+            {
+                "field": "parse_mode",
+                "field_type": "String",
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message."
+            },
+            {
+                "field": "disable_web_page_preview",
+                "field_type": "Boolean",
+                "description": "Optional. Disables link previews for links in the sent message"
+            }
+        ]
+    },
+    {
+        "name": "InputLocationMessageContent",
+        "description": "Represents the content of a location message to be sent as the result of an inline query. ",
+        "fields": [
+            {
+                "field": "latitude",
+                "field_type": "Float",
+                "description": "Latitude of the location in degrees"
+            },
+            {
+                "field": "longitude",
+                "field_type": "Float",
+                "description": "Longitude of the location in degrees"
+            },
+            {
+                "field": "live_period",
+                "field_type": "Integer",
+                "description": "Optional. Period in seconds for which the location can be updated, should be between 60 and 86400."
+            }
+        ]
+    },
+    {
+        "name": "InputVenueMessageContent",
+        "description": "Represents the content of a venue message to be sent as the result of an inline query. ",
+        "fields": [
+            {
+                "field": "latitude",
+                "field_type": "Float",
+                "description": "Latitude of the venue in degrees"
+            },
+            {
+                "field": "longitude",
+                "field_type": "Float",
+                "description": "Longitude of the venue in degrees"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Name of the venue"
+            },
+            {
+                "field": "address",
+                "field_type": "String",
+                "description": "Address of the venue"
+            },
+            {
+                "field": "foursquare_id",
+                "field_type": "String",
+                "description": "Optional. Foursquare identifier of the venue, if known"
+            }
+        ]
+    },
+    {
+        "name": "InputContactMessageContent",
+        "description": "Represents the content of a contact message to be sent as the result of an inline query. ",
+        "fields": [
+            {
+                "field": "phone_number",
+                "field_type": "String",
+                "description": "Contact's phone number"
+            },
+            {
+                "field": "first_name",
+                "field_type": "String",
+                "description": "Contact's first name"
+            },
+            {
+                "field": "last_name",
+                "field_type": "String",
+                "description": "Optional. Contact's last name"
+            }
+        ]
+    },
+    {
+        "name": "ChosenInlineResult",
+        "description": "Represents a result of an inline query that was chosen by the user and sent to their chat partner. ",
+        "fields": [
+            {
+                "field": "result_id",
+                "field_type": "String",
+                "description": "The unique identifier for the result that was chosen"
+            },
+            {
+                "field": "from",
+                "field_type": "User",
+                "description": "The user that chose the result"
+            },
+            {
+                "field": "location",
+                "field_type": "Location",
+                "description": "Optional. Sender location, only for bots that require user location"
+            },
+            {
+                "field": "inline_message_id",
+                "field_type": "String",
+                "description": "Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will be also received in callback queries and can be used to edit the message."
+            },
+            {
+                "field": "query",
+                "field_type": "String",
+                "description": "The query that was used to obtain the result"
+            }
+        ]
+    },
+    {
+        "name": "LabeledPrice",
+        "description": "This object represents a portion of the price for goods or services.",
+        "fields": [
+            {
+                "field": "label",
+                "field_type": "String",
+                "description": "Portion label"
+            },
+            {
+                "field": "amount",
+                "field_type": "Integer",
+                "description": "Price of the product in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+            }
+        ]
+    },
+    {
+        "name": "Invoice",
+        "description": "This object contains basic information about an invoice.",
+        "fields": [
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Product name"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Product description"
+            },
+            {
+                "field": "start_parameter",
+                "field_type": "String",
+                "description": "Unique bot deep-linking parameter that can be used to generate this invoice"
+            },
+            {
+                "field": "currency",
+                "field_type": "String",
+                "description": "Three-letter ISO 4217 currency code"
+            },
+            {
+                "field": "total_amount",
+                "field_type": "Integer",
+                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+            }
+        ]
+    },
+    {
+        "name": "ShippingAddress",
+        "description": "This object represents a shipping address.",
+        "fields": [
+            {
+                "field": "country_code",
+                "field_type": "String",
+                "description": "ISO 3166-1 alpha-2 country code"
+            },
+            {
+                "field": "state",
+                "field_type": "String",
+                "description": "State, if applicable"
+            },
+            {
+                "field": "city",
+                "field_type": "String",
+                "description": "City"
+            },
+            {
+                "field": "street_line1",
+                "field_type": "String",
+                "description": "First line for the address"
+            },
+            {
+                "field": "street_line2",
+                "field_type": "String",
+                "description": "Second line for the address"
+            },
+            {
+                "field": "post_code",
+                "field_type": "String",
+                "description": "Address post code"
+            }
+        ]
+    },
+    {
+        "name": "OrderInfo",
+        "description": "This object represents information about an order.",
+        "fields": [
+            {
+                "field": "name",
+                "field_type": "String",
+                "description": "Optional. User name"
+            },
+            {
+                "field": "phone_number",
+                "field_type": "String",
+                "description": "Optional. User's phone number"
+            },
+            {
+                "field": "email",
+                "field_type": "String",
+                "description": "Optional. User email"
+            },
+            {
+                "field": "shipping_address",
+                "field_type": "ShippingAddress",
+                "description": "Optional. User shipping address"
+            }
+        ]
+    },
+    {
+        "name": "ShippingOption",
+        "description": "This object represents one shipping option.",
+        "fields": [
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Shipping option identifier"
+            },
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Option title"
+            },
+            {
+                "field": "prices",
+                "field_type": "Array of LabeledPrice",
+                "description": "List of price portions"
+            }
+        ]
+    },
+    {
+        "name": "SuccessfulPayment",
+        "description": "This object contains basic information about a successful payment.",
+        "fields": [
+            {
+                "field": "currency",
+                "field_type": "String",
+                "description": "Three-letter ISO 4217 currency code"
+            },
+            {
+                "field": "total_amount",
+                "field_type": "Integer",
+                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+            },
+            {
+                "field": "invoice_payload",
+                "field_type": "String",
+                "description": "Bot specified invoice payload"
+            },
+            {
+                "field": "shipping_option_id",
+                "field_type": "String",
+                "description": "Optional. Identifier of the shipping option chosen by the user"
+            },
+            {
+                "field": "order_info",
+                "field_type": "OrderInfo",
+                "description": "Optional. Order info provided by the user"
+            },
+            {
+                "field": "telegram_payment_charge_id",
+                "field_type": "String",
+                "description": "Telegram payment identifier"
+            },
+            {
+                "field": "provider_payment_charge_id",
+                "field_type": "String",
+                "description": "Provider payment identifier"
+            }
+        ]
+    },
+    {
+        "name": "ShippingQuery",
+        "description": "This object contains information about an incoming shipping query.",
+        "fields": [
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique query identifier"
+            },
+            {
+                "field": "from",
+                "field_type": "User",
+                "description": "User who sent the query"
+            },
+            {
+                "field": "invoice_payload",
+                "field_type": "String",
+                "description": "Bot specified invoice payload"
+            },
+            {
+                "field": "shipping_address",
+                "field_type": "ShippingAddress",
+                "description": "User specified shipping address"
+            }
+        ]
+    },
+    {
+        "name": "PreCheckoutQuery",
+        "description": "This object contains information about an incoming pre-checkout query.",
+        "fields": [
+            {
+                "field": "id",
+                "field_type": "String",
+                "description": "Unique query identifier"
+            },
+            {
+                "field": "from",
+                "field_type": "User",
+                "description": "User who sent the query"
+            },
+            {
+                "field": "currency",
+                "field_type": "String",
+                "description": "Three-letter ISO 4217 currency code"
+            },
+            {
+                "field": "total_amount",
+                "field_type": "Integer",
+                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+            },
+            {
+                "field": "invoice_payload",
+                "field_type": "String",
+                "description": "Bot specified invoice payload"
+            },
+            {
+                "field": "shipping_option_id",
+                "field_type": "String",
+                "description": "Optional. Identifier of the shipping option chosen by the user"
+            },
+            {
+                "field": "order_info",
+                "field_type": "OrderInfo",
+                "description": "Optional. Order info provided by the user"
+            }
+        ]
+    },
+    {
+        "name": "Game",
+        "description": "This object represents a game. Use BotFather to create and edit games, their short names will act as unique identifiers.",
+        "fields": [
+            {
+                "field": "title",
+                "field_type": "String",
+                "description": "Title of the game"
+            },
+            {
+                "field": "description",
+                "field_type": "String",
+                "description": "Description of the game"
+            },
+            {
+                "field": "photo",
+                "field_type": "Array of PhotoSize",
+                "description": "Photo that will be displayed in the game message in chats."
+            },
+            {
+                "field": "text",
+                "field_type": "String",
+                "description": "Optional. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls setGameScore, or manually edited using editMessageText. 0-4096 characters."
+            },
+            {
+                "field": "text_entities",
+                "field_type": "Array of MessageEntity",
+                "description": "Optional. Special entities that appear in text, such as usernames, URLs, bot commands, etc."
+            },
+            {
+                "field": "animation",
+                "field_type": "Animation",
+                "description": "Optional. Animation that will be displayed in the game message in chats. Upload via BotFather"
+            }
+        ]
+    },
+    {
+        "name": "Animation",
+        "description": "You can provide an animation for your game so that it looks stylish in chats (check out Lumberjack for an example). This object represents an animation file to be displayed in the message containing a game.",
+        "fields": [
+            {
+                "field": "file_id",
+                "field_type": "String",
+                "description": "Unique file identifier"
+            },
+            {
+                "field": "thumb",
+                "field_type": "PhotoSize",
+                "description": "Optional. Animation thumbnail as defined by sender"
+            },
+            {
+                "field": "file_name",
+                "field_type": "String",
+                "description": "Optional. Original animation filename as defined by sender"
+            },
+            {
+                "field": "mime_type",
+                "field_type": "String",
+                "description": "Optional. MIME type of the file as defined by sender"
+            },
+            {
+                "field": "file_size",
+                "field_type": "Integer",
+                "description": "Optional. File size"
+            }
+        ]
+    },
+    {
+        "name": "CallbackGame",
+        "description": "A placeholder, currently holds no information. Use BotFather to set up your game.",
+        "fields": []
+    },
+    {
+        "name": "GameHighScore",
+        "description": "This object represents one row of the high scores table for a game.",
+        "fields": [
+            {
+                "field": "position",
+                "field_type": "Integer",
+                "description": "Position in high score table for the game"
+            },
+            {
+                "field": "user",
+                "field_type": "User",
+                "description": "User"
+            },
+            {
+                "field": "score",
+                "field_type": "Integer",
+                "description": "Score"
+            }
+        ]
+    }
+]
