@@ -1,5 +1,5 @@
 package telehx;
-import telehx.TeleHxTypes
+import telehx.TeleHxTypes;
 
 {% set basic_types = {
 	'Integer': 'Int', 
@@ -10,15 +10,9 @@ import telehx.TeleHxTypes
 	'Float': 'Float'} 
 %}
 
-{# changes api objects names to append Hx in front ex: Message -> HxMessage #}
+{# changes api methods names to append Hx in front: sendMessage -> HxSendMessage #}
 {%- macro append_hx(name) -%}
 	Hx{{ name }}
-{%- endmacro -%}
-
-{# changes fields of type object to be wrapped into a HxApiResponse class ex: Message -> HxApiResponse<HxMessage> #}
-{%- macro api_wrapper(name) -%}
-	{%- set hx_name = append_hx(name) -%}
-	HxApiResponse<{{hx_name}}>
 {%- endmacro -%}
 
 {# Builds Arrays definitions based on the type text, ex: Array of Message -> Array<HxApiResponse<HxMessage>> #}
@@ -33,7 +27,7 @@ import telehx.TeleHxTypes
 		{%- if current_word in basic_types.keys() -%}
 			{{ basic_types[current_word] }}
 		{%- else -%}
-			{{ api_wrapper(current_word) }}
+			{{ append_hx(current_word) }}
 		{%- endif -%}
 	{%- endif -%}
 {%- endmacro -%}
@@ -45,8 +39,11 @@ import telehx.TeleHxTypes
 	{%- else -%}
 		{%- if typename.split()[0] == 'Array' -%}
 			{{ build_array_definition(typename) }}
+		{# I don't want to deal with "Integer or String" parameters, just resolve this as Dynamic#}
+		{%- elif 'or' in typename -%}
+			Dynamic
 		{%- else -%}
-			{{ api_wrapper(typename) }}
+			{{ append_hx(typename) }}
 		{%- endif -%}
 	{%- endif -%}
 {%- endmacro -%}
@@ -54,29 +51,52 @@ import telehx.TeleHxTypes
 class TeleHxMethods {
 	public static var telegramAPIURL: String = "https://api.telegram.org/bot":
 	
-	public static function sendApiRequest()
-}
-
-/*
- * Base class that represents a response from telegram.
- */
-typedef HxApiResponse<T> = {
-    ok: Bool,
-    result: T,
-}
-
-{% for telegram_type in telegram_types %}
-/*
- * {{ telegram_type.description }}
- */
-typedef {{ append_hx(telegram_type.name) }} = {
-	{% for field in telegram_type.fields %}
-
+	public static function sendApiRequest(bot: TeleHxBot, method: String, ?params: HxMethodParams<Dynamic>, ?callback: HxApiResponse<Dynamic> -> Void) {
+		var requestURL = '${telegramAPIURL}${bot.token}/${method}';
+		var requestInstance = new haxe.Http(requestURL);
+		requestInstance.setPostData(haxe.Json.stringify(params.params));
+        requestInstance.addHeader('Content-Type', 'application/json');
+		requestInstance.onData = function(data: String) {
+			#if debug
+			trace('sendApiRequest: $data');
+			#end
+			var response: HxApiResponse<Dynamic> = haxe.Json.parse(data);
+			callback(response);
+		}
+        requestInstance.onError = function(data: String) {
+            trace('Error: $data');
+        }
+		requestInstance.request(true);
+	}
+{% for telegram_method in telegram_methods %}
 	/*
-	 * {{ field.description }}
+	 * {{ telegram_method.description }}
 	 */
-	{{ field.field }}: {{ get_base_type(field.field_type) }},
-    {% endfor %}
+	public static function {{ telegram_method.name }}(bot: TeleHxBot, ?params: {{ append_hx(telegram_method.name) }}, ?callback: HxTYPEFOR{{ telegram_method.name }} -> Void): Void {
+		sendApiRequest("{{ telegram_method.name }}", {params: params}, function(response: HxApiResponse<HxTYPEFOR{{ telegram_method.name }}>){
+			callback(response.result);
+		});
+	}
+{% endfor %}
+}
+
+/*
+ * Parent of all method's parameter definitions.
+ */
+typedef HxMethodParams<T> = {
+	params: T,
+}
+{% for telegram_method in telegram_methods %}
+/*
+ * Parameter typedef for method {{ telegram_method.name }}
+ */
+typedef {{ append_hx(telegram_method.name)}} = {
+	{% for field in telegram_method.fields %}
+		/*
+		 * {{ field.description }}
+		 */
+		{{ '?' if not field.required else '' }}{{ field.parameter }}: {{ get_base_type(field.field_type) }},
+	{% endfor %}
 }
 
 {% endfor %}

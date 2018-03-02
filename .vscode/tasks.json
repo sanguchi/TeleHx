@@ -43,6 +43,11 @@
             "label": "hl",
             "type": "shell",
             "command": "hl output/hl/main.hl"
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "haxe -cp src -main Main -dce no -cp src/telehx -debug -neko output/neko/main.n; cd output/neko; neko main.n"
         }
     ]
 }

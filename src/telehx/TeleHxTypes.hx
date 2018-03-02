@@ -22,47 +22,47 @@ typedef HxUpdate = {
 	/*
 	 * Optional. New incoming message of any kind — text, photo, sticker, etc.
 	 */
-	message: HxApiResponse<HxMessage>,
+	message: HxMessage,
 
 	/*
 	 * Optional. New version of a message that is known to the bot and was edited
 	 */
-	edited_message: HxApiResponse<HxMessage>,
+	edited_message: HxMessage,
 
 	/*
 	 * Optional. New incoming channel post of any kind — text, photo, sticker, etc.
 	 */
-	channel_post: HxApiResponse<HxMessage>,
+	channel_post: HxMessage,
 
 	/*
 	 * Optional. New version of a channel post that is known to the bot and was edited
 	 */
-	edited_channel_post: HxApiResponse<HxMessage>,
+	edited_channel_post: HxMessage,
 
 	/*
 	 * Optional. New incoming inline query
 	 */
-	inline_query: HxApiResponse<HxInlineQuery>,
+	inline_query: HxInlineQuery,
 
 	/*
 	 * Optional. The result of an inline query that was chosen by a user and sent to their chat partner. Please see our documentation on the feedback collecting for details on how to enable these updates for your bot.
 	 */
-	chosen_inline_result: HxApiResponse<HxChosenInlineResult>,
+	chosen_inline_result: HxChosenInlineResult,
 
 	/*
 	 * Optional. New incoming callback query
 	 */
-	callback_query: HxApiResponse<HxCallbackQuery>,
+	callback_query: HxCallbackQuery,
 
 	/*
 	 * Optional. New incoming shipping query. Only for invoices with flexible price
 	 */
-	shipping_query: HxApiResponse<HxShippingQuery>,
+	shipping_query: HxShippingQuery,
 
 	/*
 	 * Optional. New incoming pre-checkout query. Contains full information about checkout
 	 */
-	pre_checkout_query: HxApiResponse<HxPreCheckoutQuery>,
+	pre_checkout_query: HxPreCheckoutQuery,
 }
 
 /*
@@ -185,7 +185,7 @@ typedef HxChat = {
 	/*
 	 * Optional. Chat photo. Returned only in getChat.
 	 */
-	photo: HxApiResponse<HxChatPhoto>,
+	photo: HxChatPhoto,
 
 	/*
 	 * Optional. Description, for supergroups and channel chats. Returned only in getChat.
@@ -200,7 +200,7 @@ typedef HxChat = {
 	/*
 	 * Optional. Pinned message, for supergroups and channel chats. Returned only in getChat.
 	 */
-	pinned_message: HxApiResponse<HxMessage>,
+	pinned_message: HxMessage,
 
 	/*
 	 * Optional. For supergroups, name of group sticker set. Returned only in getChat.
@@ -226,7 +226,7 @@ typedef HxMessage = {
 	/*
 	 * Optional. Sender, empty for messages sent to channels
 	 */
-	from: HxApiResponse<HxUser>,
+	from: HxUser,
 
 	/*
 	 * Date the message was sent in Unix time
@@ -236,17 +236,17 @@ typedef HxMessage = {
 	/*
 	 * Conversation the message belongs to
 	 */
-	chat: HxApiResponse<HxChat>,
+	chat: HxChat,
 
 	/*
 	 * Optional. For forwarded messages, sender of the original message
 	 */
-	forward_from: HxApiResponse<HxUser>,
+	forward_from: HxUser,
 
 	/*
 	 * Optional. For messages forwarded from channels, information about the original channel
 	 */
-	forward_from_chat: HxApiResponse<HxChat>,
+	forward_from_chat: HxChat,
 
 	/*
 	 * Optional. For messages forwarded from channels, identifier of the original message in the channel
@@ -266,7 +266,7 @@ typedef HxMessage = {
 	/*
 	 * Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.
 	 */
-	reply_to_message: HxApiResponse<HxMessage>,
+	reply_to_message: HxMessage,
 
 	/*
 	 * Optional. Date the message was last edited in Unix time
@@ -291,52 +291,52 @@ typedef HxMessage = {
 	/*
 	 * Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text
 	 */
-	entities: Array<HxApiResponse<HxMessageEntity>>,
+	entities: Array<HxMessageEntity>,
 
 	/*
 	 * Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption
 	 */
-	caption_entities: Array<HxApiResponse<HxMessageEntity>>,
+	caption_entities: Array<HxMessageEntity>,
 
 	/*
 	 * Optional. Message is an audio file, information about the file
 	 */
-	audio: HxApiResponse<HxAudio>,
+	audio: HxAudio,
 
 	/*
 	 * Optional. Message is a general file, information about the file
 	 */
-	document: HxApiResponse<HxDocument>,
+	document: HxDocument,
 
 	/*
 	 * Optional. Message is a game, information about the game. More about games »
 	 */
-	game: HxApiResponse<HxGame>,
+	game: HxGame,
 
 	/*
 	 * Optional. Message is a photo, available sizes of the photo
 	 */
-	photo: Array<HxApiResponse<HxPhotoSize>>,
+	photo: Array<HxPhotoSize>,
 
 	/*
 	 * Optional. Message is a sticker, information about the sticker
 	 */
-	sticker: HxApiResponse<HxSticker>,
+	sticker: HxSticker,
 
 	/*
 	 * Optional. Message is a video, information about the video
 	 */
-	video: HxApiResponse<HxVideo>,
+	video: HxVideo,
 
 	/*
 	 * Optional. Message is a voice message, information about the file
 	 */
-	voice: HxApiResponse<HxVoice>,
+	voice: HxVoice,
 
 	/*
 	 * Optional. Message is a video note, information about the video message
 	 */
-	video_note: HxApiResponse<HxVideoNote>,
+	video_note: HxVideoNote,
 
 	/*
 	 * Optional. Caption for the audio, document, photo, video or voice, 0-200 characters
@@ -346,27 +346,27 @@ typedef HxMessage = {
 	/*
 	 * Optional. Message is a shared contact, information about the contact
 	 */
-	contact: HxApiResponse<HxContact>,
+	contact: HxContact,
 
 	/*
 	 * Optional. Message is a shared location, information about the location
 	 */
-	location: HxApiResponse<HxLocation>,
+	location: HxLocation,
 
 	/*
 	 * Optional. Message is a venue, information about the venue
 	 */
-	venue: HxApiResponse<HxVenue>,
+	venue: HxVenue,
 
 	/*
 	 * Optional. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)
 	 */
-	new_chat_members: Array<HxApiResponse<HxUser>>,
+	new_chat_members: Array<HxUser>,
 
 	/*
 	 * Optional. A member was removed from the group, information about them (this member may be the bot itself)
 	 */
-	left_chat_member: HxApiResponse<HxUser>,
+	left_chat_member: HxUser,
 
 	/*
 	 * Optional. A chat title was changed to this value
@@ -376,7 +376,7 @@ typedef HxMessage = {
 	/*
 	 * Optional. A chat photo was change to this value
 	 */
-	new_chat_photo: Array<HxApiResponse<HxPhotoSize>>,
+	new_chat_photo: Array<HxPhotoSize>,
 
 	/*
 	 * Optional. Service message: the chat photo was deleted
@@ -411,17 +411,17 @@ typedef HxMessage = {
 	/*
 	 * Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply.
 	 */
-	pinned_message: HxApiResponse<HxMessage>,
+	pinned_message: HxMessage,
 
 	/*
 	 * Optional. Message is an invoice for a payment, information about the invoice. More about payments »
 	 */
-	invoice: HxApiResponse<HxInvoice>,
+	invoice: HxInvoice,
 
 	/*
 	 * Optional. Message is a service message about a successful payment, information about the payment. More about payments »
 	 */
-	successful_payment: HxApiResponse<HxSuccessfulPayment>,
+	successful_payment: HxSuccessfulPayment,
 
 	/*
 	 * Optional. The domain name of the website on which the user has logged in. More about Telegram Login »
@@ -457,7 +457,7 @@ typedef HxMessageEntity = {
 	/*
 	 * Optional. For “text_mention” only, the mentioned user
 	 */
-	user: HxApiResponse<HxUser>,
+	user: HxUser,
 }
 
 /*
@@ -535,7 +535,7 @@ typedef HxDocument = {
 	/*
 	 * Optional. Document thumbnail as defined by sender
 	 */
-	thumb: HxApiResponse<HxPhotoSize>,
+	thumb: HxPhotoSize,
 
 	/*
 	 * Optional. Original filename as defined by sender
@@ -581,7 +581,7 @@ typedef HxVideo = {
 	/*
 	 * Optional. Video thumbnail
 	 */
-	thumb: HxApiResponse<HxPhotoSize>,
+	thumb: HxPhotoSize,
 
 	/*
 	 * Optional. Mime type of a file as defined by sender
@@ -643,7 +643,7 @@ typedef HxVideoNote = {
 	/*
 	 * Optional. Video thumbnail
 	 */
-	thumb: HxApiResponse<HxPhotoSize>,
+	thumb: HxPhotoSize,
 
 	/*
 	 * Optional. File size
@@ -701,7 +701,7 @@ typedef HxVenue = {
 	/*
 	 * Venue location
 	 */
-	location: HxApiResponse<HxLocation>,
+	location: HxLocation,
 
 	/*
 	 * Name of the venue
@@ -732,7 +732,7 @@ typedef HxUserProfilePhotos = {
 	/*
 	 * Requested profile pictures (in up to 4 sizes each)
 	 */
-	photos: Array<Array<HxApiResponse<HxPhotoSize>>>,
+	photos: Array<Array<HxPhotoSize>>,
 }
 
 /*
@@ -764,7 +764,7 @@ typedef HxReplyKeyboardMarkup = {
 	/*
 	 * Array of button rows, each represented by an Array of KeyboardButton objects
 	 */
-	keyboard: Array<Array<HxApiResponse<HxKeyboardButton>>>,
+	keyboard: Array<Array<HxKeyboardButton>>,
 
 	/*
 	 * Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboard.
@@ -827,7 +827,7 @@ typedef HxInlineKeyboardMarkup = {
 	/*
 	 * Array of button rows, each represented by an Array of InlineKeyboardButton objects
 	 */
-	inline_keyboard: Array<Array<HxApiResponse<HxInlineKeyboardButton>>>,
+	inline_keyboard: Array<Array<HxInlineKeyboardButton>>,
 }
 
 /*
@@ -863,7 +863,7 @@ typedef HxInlineKeyboardButton = {
 	/*
 	 * Optional. Description of the game that will be launched when the user presses the button.NOTE: This type of button must always be the first button in the first row.
 	 */
-	callback_game: HxApiResponse<HxCallbackGame>,
+	callback_game: HxCallbackGame,
 
 	/*
 	 * Optional. Specify True, to send a Pay button.NOTE: This type of button must always be the first button in the first row.
@@ -884,12 +884,12 @@ typedef HxCallbackQuery = {
 	/*
 	 * Sender
 	 */
-	from: HxApiResponse<HxUser>,
+	from: HxUser,
 
 	/*
 	 * Optional. Message with the callback button that originated the query. Note that message content and message date will not be available if the message is too old
 	 */
-	message: HxApiResponse<HxMessage>,
+	message: HxMessage,
 
 	/*
 	 * Optional. Identifier of the message sent via the bot in inline mode, that originated the query.
@@ -952,7 +952,7 @@ typedef HxChatMember = {
 	/*
 	 * Information about the user
 	 */
-	user: HxApiResponse<HxUser>,
+	user: HxUser,
 
 	/*
 	 * The member's status in the chat. Can be “creator”, “administrator”, “member”, “restricted”, “left” or “kicked”
@@ -1153,7 +1153,7 @@ typedef HxSticker = {
 	/*
 	 * Optional. Sticker thumbnail in the .webp or .jpg format
 	 */
-	thumb: HxApiResponse<HxPhotoSize>,
+	thumb: HxPhotoSize,
 
 	/*
 	 * Optional. Emoji associated with the sticker
@@ -1168,7 +1168,7 @@ typedef HxSticker = {
 	/*
 	 * Optional. For mask stickers, the position where the mask should be placed
 	 */
-	mask_position: HxApiResponse<HxMaskPosition>,
+	mask_position: HxMaskPosition,
 
 	/*
 	 * Optional. File size
@@ -1199,7 +1199,7 @@ typedef HxStickerSet = {
 	/*
 	 * List of all set stickers
 	 */
-	stickers: Array<HxApiResponse<HxSticker>>,
+	stickers: Array<HxSticker>,
 }
 
 /*
@@ -1241,12 +1241,12 @@ typedef HxInlineQuery = {
 	/*
 	 * Sender
 	 */
-	from: HxApiResponse<HxUser>,
+	from: HxUser,
 
 	/*
 	 * Optional. Sender location, only for bots that request user location
 	 */
-	location: HxApiResponse<HxLocation>,
+	location: HxLocation,
 
 	/*
 	 * Text of the query (up to 512 characters)
@@ -1288,12 +1288,12 @@ typedef HxInlineQueryResultArticle = {
 	/*
 	 * Content of the message to be sent
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. URL of the result
@@ -1384,12 +1384,12 @@ typedef HxInlineQueryResultPhoto = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the photo
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -1450,12 +1450,12 @@ typedef HxInlineQueryResultGif = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the GIF animation
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -1516,12 +1516,12 @@ typedef HxInlineQueryResultMpeg4Gif = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the video animation
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -1592,12 +1592,12 @@ typedef HxInlineQueryResultVideo = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -1648,12 +1648,12 @@ typedef HxInlineQueryResultAudio = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the audio
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -1699,12 +1699,12 @@ typedef HxInlineQueryResultVoice = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the voice recording
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -1755,12 +1755,12 @@ typedef HxInlineQueryResultDocument = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the file
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 
 	/*
 	 * Optional. URL of the thumbnail (jpeg only) for the file
@@ -1816,12 +1816,12 @@ typedef HxInlineQueryResultLocation = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the location
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 
 	/*
 	 * Optional. Url of the thumbnail for the result
@@ -1882,12 +1882,12 @@ typedef HxInlineQueryResultVenue = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the venue
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 
 	/*
 	 * Optional. Url of the thumbnail for the result
@@ -1938,12 +1938,12 @@ typedef HxInlineQueryResultContact = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the contact
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 
 	/*
 	 * Optional. Url of the thumbnail for the result
@@ -1984,7 +1984,7 @@ typedef HxInlineQueryResultGame = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 }
 
 /*
@@ -2030,12 +2030,12 @@ typedef HxInlineQueryResultCachedPhoto = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the photo
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2076,12 +2076,12 @@ typedef HxInlineQueryResultCachedGif = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the GIF animation
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2122,12 +2122,12 @@ typedef HxInlineQueryResultCachedMpeg4Gif = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the video animation
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2153,12 +2153,12 @@ typedef HxInlineQueryResultCachedSticker = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the sticker
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2204,12 +2204,12 @@ typedef HxInlineQueryResultCachedDocument = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the file
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2255,12 +2255,12 @@ typedef HxInlineQueryResultCachedVideo = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the video
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2301,12 +2301,12 @@ typedef HxInlineQueryResultCachedVoice = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the voice message
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2342,12 +2342,12 @@ typedef HxInlineQueryResultCachedAudio = {
 	/*
 	 * Optional. Inline keyboard attached to the message
 	 */
-	reply_markup: HxApiResponse<HxInlineKeyboardMarkup>,
+	reply_markup: HxInlineKeyboardMarkup,
 
 	/*
 	 * Optional. Content of the message to be sent instead of the audio
 	 */
-	input_message_content: HxApiResponse<HxInputMessageContent>,
+	input_message_content: HxInputMessageContent,
 }
 
 /*
@@ -2463,12 +2463,12 @@ typedef HxChosenInlineResult = {
 	/*
 	 * The user that chose the result
 	 */
-	from: HxApiResponse<HxUser>,
+	from: HxUser,
 
 	/*
 	 * Optional. Sender location, only for bots that require user location
 	 */
-	location: HxApiResponse<HxLocation>,
+	location: HxLocation,
 
 	/*
 	 * Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will be also received in callback queries and can be used to edit the message.
@@ -2587,7 +2587,7 @@ typedef HxOrderInfo = {
 	/*
 	 * Optional. User shipping address
 	 */
-	shipping_address: HxApiResponse<HxShippingAddress>,
+	shipping_address: HxShippingAddress,
 }
 
 /*
@@ -2608,7 +2608,7 @@ typedef HxShippingOption = {
 	/*
 	 * List of price portions
 	 */
-	prices: Array<HxApiResponse<HxLabeledPrice>>,
+	prices: Array<HxLabeledPrice>,
 }
 
 /*
@@ -2639,7 +2639,7 @@ typedef HxSuccessfulPayment = {
 	/*
 	 * Optional. Order info provided by the user
 	 */
-	order_info: HxApiResponse<HxOrderInfo>,
+	order_info: HxOrderInfo,
 
 	/*
 	 * Telegram payment identifier
@@ -2665,7 +2665,7 @@ typedef HxShippingQuery = {
 	/*
 	 * User who sent the query
 	 */
-	from: HxApiResponse<HxUser>,
+	from: HxUser,
 
 	/*
 	 * Bot specified invoice payload
@@ -2675,7 +2675,7 @@ typedef HxShippingQuery = {
 	/*
 	 * User specified shipping address
 	 */
-	shipping_address: HxApiResponse<HxShippingAddress>,
+	shipping_address: HxShippingAddress,
 }
 
 /*
@@ -2691,7 +2691,7 @@ typedef HxPreCheckoutQuery = {
 	/*
 	 * User who sent the query
 	 */
-	from: HxApiResponse<HxUser>,
+	from: HxUser,
 
 	/*
 	 * Three-letter ISO 4217 currency code
@@ -2716,7 +2716,7 @@ typedef HxPreCheckoutQuery = {
 	/*
 	 * Optional. Order info provided by the user
 	 */
-	order_info: HxApiResponse<HxOrderInfo>,
+	order_info: HxOrderInfo,
 }
 
 /*
@@ -2737,7 +2737,7 @@ typedef HxGame = {
 	/*
 	 * Photo that will be displayed in the game message in chats.
 	 */
-	photo: Array<HxApiResponse<HxPhotoSize>>,
+	photo: Array<HxPhotoSize>,
 
 	/*
 	 * Optional. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls setGameScore, or manually edited using editMessageText. 0-4096 characters.
@@ -2747,12 +2747,12 @@ typedef HxGame = {
 	/*
 	 * Optional. Special entities that appear in text, such as usernames, URLs, bot commands, etc.
 	 */
-	text_entities: Array<HxApiResponse<HxMessageEntity>>,
+	text_entities: Array<HxMessageEntity>,
 
 	/*
 	 * Optional. Animation that will be displayed in the game message in chats. Upload via BotFather
 	 */
-	animation: HxApiResponse<HxAnimation>,
+	animation: HxAnimation,
 }
 
 /*
@@ -2768,7 +2768,7 @@ typedef HxAnimation = {
 	/*
 	 * Optional. Animation thumbnail as defined by sender
 	 */
-	thumb: HxApiResponse<HxPhotoSize>,
+	thumb: HxPhotoSize,
 
 	/*
 	 * Optional. Original animation filename as defined by sender
@@ -2805,7 +2805,7 @@ typedef HxGameHighScore = {
 	/*
 	 * User
 	 */
-	user: HxApiResponse<HxUser>,
+	user: HxUser,
 
 	/*
 	 * Score

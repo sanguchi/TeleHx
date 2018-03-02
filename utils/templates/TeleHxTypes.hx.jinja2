@@ -14,12 +14,6 @@ package telehx;
 	Hx{{ name }}
 {%- endmacro -%}
 
-{# changes fields of type object to be wrapped into a HxApiResponse class ex: Message -> HxApiResponse<HxMessage> #}
-{%- macro api_wrapper(name) -%}
-	{%- set hx_name = append_hx(name) -%}
-	HxApiResponse<{{hx_name}}>
-{%- endmacro -%}
-
 {# Builds Arrays definitions based on the type text, ex: Array of Message -> Array<HxApiResponse<HxMessage>> #}
 {# It splits the string to choose the type, it should find: a basic type, an object type or another array type #}	
 {%- macro build_array_definition(name) -%}
@@ -32,7 +26,7 @@ package telehx;
 		{%- if current_word in basic_types.keys() -%}
 			{{ basic_types[current_word] }}
 		{%- else -%}
-			{{ api_wrapper(current_word) }}
+			{{ append_hx(current_word) }}
 		{%- endif -%}
 	{%- endif -%}
 {%- endmacro -%}
@@ -45,7 +39,7 @@ package telehx;
 		{%- if typename.split()[0] == 'Array' -%}
 			{{ build_array_definition(typename) }}
 		{%- else -%}
-			{{ api_wrapper(typename) }}
+			{{ append_hx(typename) }}
 		{%- endif -%}
 	{%- endif -%}
 {%- endmacro -%}
