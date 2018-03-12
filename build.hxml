@@ -18,15 +18,15 @@
 
 --next
 
--php output/php/
+-php output/php
 
 --next
 
--cpp output/cpp/
+-cpp output/cpp
 
 --next
 
--java output/java/
+-java output/java
 
 --next
 

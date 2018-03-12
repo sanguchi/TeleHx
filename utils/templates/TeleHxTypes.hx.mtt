@@ -1,0 +1,24 @@
+package telehx;
+
+/*
+ * Base class that represents a response from telegram.
+ */
+typedef HxApiResponse<T> = {
+    ok: Bool,
+    result: T,
+}
+
+::foreach type_data::
+/*
+ * ::description::
+ */
+typedef $$appendHx(::name::) = {
+	::foreach fields::
+
+	/*
+	 * ::description::
+	 */
+	::field:: : $$getBaseType(::field_type::),
+    ::end::
+}
+::end::

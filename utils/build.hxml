@@ -1,0 +1,8 @@
+-main CodeGenerator
+-dce full
+-neko CodeGenerator.n
+-resource templates/TeleHxMethods.hx.mtt@TeleHxMethods
+-resource templates/TeleHxTypes.hx.mtt@TeleHxTypes
+-resource types.json@JSONTypes
+-resource methods.json@JSONMethods
+-cmd echo Compilation Finished
