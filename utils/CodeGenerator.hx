@@ -14,7 +14,7 @@ class CodeGenerator {
   static function main() {
     new CodeGenerator();
   }
-  
+  var knownReturns: Map<String, String> = haxe.Json.parse(haxe.Resource.getString("KnownTypes"));
   public function new() {
     // Start generating types.
     var template_text = haxe.Resource.getString("TeleHxTypes");
@@ -31,7 +31,7 @@ class CodeGenerator {
     template_text = haxe.Resource.getString("TeleHxMethods");
     var method_data = haxe.Json.parse(haxe.Resource.getString("JSONMethods"))[0];
     template = new haxe.Template(template_text);
-    output = template.execute({"telegram_method": method_data}, {"appendHx": appendHx, "getBaseType": getBaseType, "buildArrayDefinition": buildArrayDefinition});
+    output = template.execute({"telegram_method": method_data}, {"appendHx": appendHx, "getBaseType": getBaseType, "buildArrayDefinition": buildArrayDefinition, "getReturnType": getReturnType});
     path = new Path("../src/telehx/TeleHxMethods.hx");
     trace('Saving methods to ${path.toString()}');
     sys.io.File.saveContent(path.toString(),output);
@@ -69,6 +69,16 @@ class CodeGenerator {
       else {
         return appendHx(resolve, current_word);
       }
+    }
+  }
+  
+  function getReturnType(resolve: String->Dynamic, method: String): String {
+    if(knownReturns.exists(method)) {
+      return knownReturns[method];
+    }
+    else {
+      trace('WARN: No return type found for method $method.');
+      return "HxTYPEFOR" + method;
     }
   }
 }

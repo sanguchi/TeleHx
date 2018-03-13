@@ -26,7 +26,7 @@ class TeleHxMethods {
 	/*
 	 * ::telegram_method.description::
 	 */
-	public static function ::telegram_method.name::(bot: TeleHxBot, ?params: $$appendHx(::telegram_method.name::), ?callback: HxTYPEFOR::telegram_method.name:: -> Void): Void {
+	public static function ::telegram_method.name::(bot: TeleHxBot, ?params: $$appendHx(::telegram_method.name::), ?callback: $$getReturn(::telegram_method.name::) -> Void): Void {
 		sendApiRequest("::telegram_method.name::", {params: params}, function(response: HxApiResponse<HxTYPEFOR::telegram_method.name::>){
 			callback(response.result);
 		});
