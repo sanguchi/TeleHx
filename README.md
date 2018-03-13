@@ -30,6 +30,7 @@ Hashlink target requires you to build the hl version 1.1.0
 **utils**  
 This folders contains some python code that generates the Haxe source code for all methods and types found  
 on https://core.telegram.org/bots/api, using jinja2 to handle the templates.  
+`i'm currently dropping the python scripts to use pure haxe templates`
 
 
 **.vscode**  
