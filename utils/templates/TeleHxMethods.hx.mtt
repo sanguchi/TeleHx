@@ -1,52 +1,6 @@
 package telehx;
 import telehx.TeleHxTypes;
 
-{% set basic_types = {
-	'Integer': 'Int', 
-	'String': 'String', 
-	'Boolean': 'Bool', 
-	'Float number': 'Float', 
-	'True': 'Bool', 
-	'Float': 'Float'} 
-%}
-
-{# changes api methods names to append Hx in front: sendMessage -> HxSendMessage #}
-{%- macro append_hx(name) -%}
-	Hx{{ name }}
-{%- endmacro -%}
-
-{# Builds Arrays definitions based on the type text, ex: Array of Message -> Array<HxApiResponse<HxMessage>> #}
-{# It splits the string to choose the type, it should find: a basic type, an object type or another array type #}	
-{%- macro build_array_definition(name) -%}
-	{# Evaluate next word #}
-	{%- set current_word = name.replace('of ', '').split()[0] -%}
-	{# if we find an array, call this function recursively #}
-	{%- if current_word == 'Array' -%}
-		Array<{{ build_array_definition(' '.join(name.replace('of ', '').split()[1:])) }}>
-	{%- else -%}
-		{%- if current_word in basic_types.keys() -%}
-			{{ basic_types[current_word] }}
-		{%- else -%}
-			{{ append_hx(current_word) }}
-		{%- endif -%}
-	{%- endif -%}
-{%- endmacro -%}
-
-{# returns the correct basic type name ex: Boolean -> Bool #}
-{%- macro get_base_type(typename) -%}
-	{%- if typename in basic_types.keys() -%}
-		{{ basic_types[typename] }}
-	{%- else -%}
-		{%- if typename.split()[0] == 'Array' -%}
-			{{ build_array_definition(typename) }}
-		{# I don't want to deal with "Integer or String" parameters, just resolve this as Dynamic#}
-		{%- elif 'or' in typename -%}
-			Dynamic
-		{%- else -%}
-			{{ append_hx(typename) }}
-		{%- endif -%}
-	{%- endif -%}
-{%- endmacro -%}
 
 class TeleHxMethods {
 	public static var telegramAPIURL: String = "https://api.telegram.org/bot":
@@ -68,16 +22,15 @@ class TeleHxMethods {
         }
 		requestInstance.request(true);
 	}
-{% for telegram_method in telegram_methods %}
+
 	/*
-	 * {{ telegram_method.description }}
+	 * ::telegram_method.description::
 	 */
-	public static function {{ telegram_method.name }}(bot: TeleHxBot, ?params: {{ append_hx(telegram_method.name) }}, ?callback: HxTYPEFOR{{ telegram_method.name }} -> Void): Void {
-		sendApiRequest("{{ telegram_method.name }}", {params: params}, function(response: HxApiResponse<HxTYPEFOR{{ telegram_method.name }}>){
+	public static function ::telegram_method.name::(bot: TeleHxBot, ?params: $$appendHx(::telegram_method.name::), ?callback: HxTYPEFOR::telegram_method.name:: -> Void): Void {
+		sendApiRequest("::telegram_method.name::", {params: params}, function(response: HxApiResponse<HxTYPEFOR::telegram_method.name::>){
 			callback(response.result);
 		});
 	}
-{% endfor %}
 }
 
 /*
@@ -86,17 +39,15 @@ class TeleHxMethods {
 typedef HxMethodParams<T> = {
 	params: T,
 }
-{% for telegram_method in telegram_methods %}
-/*
- * Parameter typedef for method {{ telegram_method.name }}
- */
-typedef {{ append_hx(telegram_method.name)}} = {
-	{% for field in telegram_method.fields %}
-		/*
-		 * {{ field.description }}
-		 */
-		{{ '?' if not field.required else '' }}{{ field.parameter }}: {{ get_base_type(field.field_type) }},
-	{% endfor %}
-}
 
-{% endfor %}
+/*
+ * Parameter typedef for method ::telegram_method.name::
+ */
+typedef $$appendHx(::telegram_method.name::) = {
+	::foreach telegram_method.fields::
+		/*
+		 * ::description::
+		 */
+		::if !required::'?'::end::::parameter:: : $$getBaseType(::field_type::),
+	::end::
+}

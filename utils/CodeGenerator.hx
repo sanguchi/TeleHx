@@ -16,6 +16,7 @@ class CodeGenerator {
   }
   
   public function new() {
+    // Start generating types.
     var template_text = haxe.Resource.getString("TeleHxTypes");
     var type_data = haxe.Json.parse(haxe.Resource.getString("JSONTypes"));
     var template = new haxe.Template(template_text);
@@ -25,6 +26,14 @@ class CodeGenerator {
     // trace('Current path: ${path}');
     // trace(sys.FileSystem.absolutePath("."));
     trace('Saving types to ${path.toString()}');
+    sys.io.File.saveContent(path.toString(),output);
+    // Generate methods.
+    template_text = haxe.Resource.getString("TeleHxMethods");
+    var method_data = haxe.Json.parse(haxe.Resource.getString("JSONMethods"))[0];
+    template = new haxe.Template(template_text);
+    output = template.execute({"telegram_method": method_data}, {"appendHx": appendHx, "getBaseType": getBaseType, "buildArrayDefinition": buildArrayDefinition});
+    path = new Path("../src/telehx/TeleHxMethods.hx");
+    trace('Saving methods to ${path.toString()}');
     sys.io.File.saveContent(path.toString(),output);
   }
   
