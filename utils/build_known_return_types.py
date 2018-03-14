@@ -14,11 +14,11 @@ basicTypes  = {
 	'Float': 'Float'}
 	 
 try:
-	known_return_types = json.load(open('returns.json'))
-	known_telegram_types = [field['name'] for field in json.load(open('types.json'))]
+	known_return_types = json.load(open('known_return_types.json'))
 except:
 	known_return_types = {}
 
+known_telegram_types = [field['name'] for field in json.load(open('types.json'))]
 def is_valid_response(response):
 	if(response in known_telegram_types):
 		return True
@@ -42,7 +42,11 @@ for method in methods:
 			exit()
 		if(response and is_valid_response(response)):
 			known_return_types[method["name"]] = response
-		else:
+		elif(not response and is_valid_response(response)):
 			known_return_types[method["name"]] = "Boolean"
+		else:
+			json.dump(known_return_types, open('known_return_types.json', 'w'), indent=4)
+			print("Invalid response [{}], was not found in known types".format(response))
+			exit()
 
 json.dump(known_return_types, open('returns.json', 'w'), indent=4)

@@ -39,7 +39,7 @@ import telehx.TeleHxTypes;
 	{%- else -%}
 		{%- if typename.split()[0] == 'Array' -%}
 			{{ build_array_definition(typename) }}
-		{# I don't want to deal with "Integer or String" parameters, just resolve this as Dynamic#}
+		{#- I don't want to deal with "Integer or String" parameters, just resolve this as Dynamic -#}
 		{%- elif 'or' in typename -%}
 			Dynamic
 		{%- else -%}
@@ -48,8 +48,17 @@ import telehx.TeleHxTypes;
 	{%- endif -%}
 {%- endmacro -%}
 
+{# tries to fetch the return value type for a given method ex: getUpdates -> Array of Update #}
+{%- macro get_return_type(method) -%}
+	{%- if method in known_return_types.keys() -%}
+		{{ get_base_type(known_return_types[method]) }}
+	{%- else -%}
+		HxTYPEFOR{{ method }}{{ "WARN: No return type found for method " + method|print }}
+	{%- endif -%}
+{%- endmacro -%}
+
 class TeleHxMethods {
-	public static var telegramAPIURL: String = "https://api.telegram.org/bot":
+	public static var telegramAPIURL: String = "https://api.telegram.org/bot";
 	
 	public static function sendApiRequest(bot: TeleHxBot, method: String, ?params: HxMethodParams<Dynamic>, ?callback: HxApiResponse<Dynamic> -> Void) {
 		var requestURL = '${telegramAPIURL}${bot.token}/${method}';
@@ -72,8 +81,8 @@ class TeleHxMethods {
 	/*
 	 * {{ telegram_method.description }}
 	 */
-	public static function {{ telegram_method.name }}(bot: TeleHxBot, ?params: {{ append_hx(telegram_method.name) }}, ?callback: HxTYPEFOR{{ telegram_method.name }} -> Void): Void {
-		sendApiRequest("{{ telegram_method.name }}", {params: params}, function(response: HxApiResponse<HxTYPEFOR{{ telegram_method.name }}>){
+	public static function {{ telegram_method.name }}(bot: TeleHxBot, ?params: {{ append_hx(telegram_method.name) }}, ?callback: {{ get_return_type(telegram_method.name) }} -> Void): Void {
+		sendApiRequest(bot, "{{ telegram_method.name }}", {params: params}, function(response: HxApiResponse<{{ get_return_type(telegram_method.name) }}>){
 			callback(response.result);
 		});
 	}
@@ -87,16 +96,16 @@ typedef HxMethodParams<T> = {
 	params: T,
 }
 {% for telegram_method in telegram_methods %}
+
 /*
  * Parameter typedef for method {{ telegram_method.name }}
  */
 typedef {{ append_hx(telegram_method.name)}} = {
 	{% for field in telegram_method.fields %}
-		/*
-		 * {{ field.description }}
-		 */
-		{{ '?' if not field.required else '' }}{{ field.parameter }}: {{ get_base_type(field.field_type) }},
+	/*
+	 * {{ field.description }}
+	 */
+	{{ '?' if not field.required else '' }}{{ field.parameter }}: {{ get_base_type(field.field_type) }},
 	{% endfor %}
 }
-
 {% endfor %}
