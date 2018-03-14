@@ -10,15 +10,13 @@ typedef HxApiResponse<T> = {
 
 ::foreach type_data::
 /*
- * ::description::
+ *  ::description::
  */
-typedef $$appendHx(::name::) = {
-	::foreach fields::
+typedef $$appendHx(::name::) = {::foreach fields::
 
-	/*
-	 * ::description::
-	 */
-	::field:: : $$getBaseType(::field_type::),
-    ::end::
+    /*
+     *	::description::
+     */
+    ::field::: $$getBaseType(::field_type::),::end::
 }
 ::end::

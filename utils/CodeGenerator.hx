@@ -14,24 +14,28 @@ class CodeGenerator {
   static function main() {
     new CodeGenerator();
   }
-  var knownReturns: Map<String, String> = haxe.Json.parse(haxe.Resource.getString("KnownTypes"));
+  
+  var knownReturns: Dynamic = haxe.Json.parse(haxe.Resource.getString("KnownTypes"));
+
   public function new() {
+    
     // Start generating types.
+    trace("INFO: Generating Types");
     var template_text = haxe.Resource.getString("TeleHxTypes");
     var type_data = haxe.Json.parse(haxe.Resource.getString("JSONTypes"));
     var template = new haxe.Template(template_text);
     var output = template.execute({"type_data": type_data}, {"appendHx": appendHx, "getBaseType": getBaseType, "buildArrayDefinition": buildArrayDefinition});
-    // trace(output);
     var path = new Path("../src/telehx/TeleHxTypes.hx");
-    // trace('Current path: ${path}');
-    // trace(sys.FileSystem.absolutePath("."));
     trace('Saving types to ${path.toString()}');
     sys.io.File.saveContent(path.toString(),output);
+    
+    
     // Generate methods.
+    trace("INFO: Generating Methods");
     template_text = haxe.Resource.getString("TeleHxMethods");
-    var method_data = haxe.Json.parse(haxe.Resource.getString("JSONMethods"))[0];
+    var method_data = haxe.Json.parse(haxe.Resource.getString("JSONMethods"));
     template = new haxe.Template(template_text);
-    output = template.execute({"telegram_method": method_data}, {"appendHx": appendHx, "getBaseType": getBaseType, "buildArrayDefinition": buildArrayDefinition, "getReturnType": getReturnType});
+    output = template.execute({"telegram_methods": method_data}, {"appendHx": appendHx, "getBaseType": getBaseType, "buildArrayDefinition": buildArrayDefinition, "getReturnType": getReturnType});
     path = new Path("../src/telehx/TeleHxMethods.hx");
     trace('Saving methods to ${path.toString()}');
     sys.io.File.saveContent(path.toString(),output);
@@ -48,6 +52,10 @@ class CodeGenerator {
     else {
       if(name.split(" ")[0] == "Array") {
         return buildArrayDefinition(resolve, name);
+      }
+      // Handle api responses of "Integer or String" as Dynamic.
+      else if(name.indexOf("or") != -1){
+        return "Dynamic";
       }
       else {
         return appendHx(resolve, name);
@@ -73,8 +81,8 @@ class CodeGenerator {
   }
   
   function getReturnType(resolve: String->Dynamic, method: String): String {
-    if(knownReturns.exists(method)) {
-      return knownReturns[method];
+    if(Reflect.hasField(knownReturns, method)) {
+      return getBaseType(resolve, Reflect.field(knownReturns, method).toString());
     }
     else {
       trace('WARN: No return type found for method $method.');

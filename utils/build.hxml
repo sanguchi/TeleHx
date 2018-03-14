@@ -5,5 +5,5 @@
 -resource templates/TeleHxTypes.hx.mtt@TeleHxTypes
 -resource types.json@JSONTypes
 -resource methods.json@JSONMethods
--resource known_return_types.json@knownTypes
+-resource known_return_types.json@KnownTypes
 -cmd echo Compilation Finished

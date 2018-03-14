@@ -3,7 +3,7 @@ import telehx.TeleHxTypes;
 
 
 class TeleHxMethods {
-	public static var telegramAPIURL: String = "https://api.telegram.org/bot":
+	public static var telegramAPIURL: String = "https://api.telegram.org/bot";
 	
 	public static function sendApiRequest(bot: TeleHxBot, method: String, ?params: HxMethodParams<Dynamic>, ?callback: HxApiResponse<Dynamic> -> Void) {
 		var requestURL = '${telegramAPIURL}${bot.token}/${method}';
@@ -21,16 +21,16 @@ class TeleHxMethods {
             trace('Error: $data');
         }
 		requestInstance.request(true);
-	}
-
+	}::foreach telegram_methods::
+	
 	/*
-	 * ::telegram_method.description::
+	 * ::description::
 	 */
-	public static function ::telegram_method.name::(bot: TeleHxBot, ?params: $$appendHx(::telegram_method.name::), ?callback: $$getReturn(::telegram_method.name::) -> Void): Void {
-		sendApiRequest("::telegram_method.name::", {params: params}, function(response: HxApiResponse<HxTYPEFOR::telegram_method.name::>){
+	public static function ::name::(bot: TeleHxBot, ?params: $$appendHx(::name::), ?callback: $$getReturnType(::name::) -> Void): Void {
+		sendApiRequest(bot, "::name::", {params: params}, function(response: HxApiResponse<$$getReturnType(::name::)>){
 			callback(response.result);
 		});
-	}
+	}::end::
 }
 
 /*
@@ -39,15 +39,15 @@ class TeleHxMethods {
 typedef HxMethodParams<T> = {
 	params: T,
 }
+::foreach telegram_methods::
 
 /*
- * Parameter typedef for method ::telegram_method.name::
+ * Parameter typedef for method ::name::
  */
-typedef $$appendHx(::telegram_method.name::) = {
-	::foreach telegram_method.fields::
-		/*
-		 * ::description::
-		 */
-		::if !required::'?'::end::::parameter:: : $$getBaseType(::field_type::),
-	::end::
-}
+typedef $$appendHx(::name::) = {::foreach fields::
+
+	/*
+	 * ::description::
+	 */
+	::if !required::?::end::::parameter:: : $$getBaseType(::field_type::),::end::
+}::end::
