@@ -34,4 +34,8 @@
 
 --next
 
+-hl output/c/main.c
+
+--next
+
 -cmd echo Compilation Finished
