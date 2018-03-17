@@ -8,7 +8,9 @@ class TeleHxMethods {
 	public static function sendApiRequest(bot: TeleHxBot, method: String, ?params: HxMethodParams<Dynamic>, ?callback: HxApiResponse<Dynamic> -> Void) {
 		var requestURL = '${telegramAPIURL}${bot.token}/${method}';
 		var requestInstance = new haxe.Http(requestURL);
-		requestInstance.setPostData(haxe.Json.stringify(params.params));
+		if(params != null) {
+			requestInstance.setPostData(haxe.Json.stringify(params.params));
+		}
         requestInstance.addHeader('Content-Type', 'application/json');
 		requestInstance.onData = function(data: String) {
 			#if debug
@@ -28,7 +30,12 @@ class TeleHxMethods {
 	 */
 	public static function ::name::(bot: TeleHxBot, ?params: $$appendHx(::name::), ?callback: $$getReturnType(::name::) -> Void): Void {
 		sendApiRequest(bot, "::name::", {params: params}, function(response: HxApiResponse<$$getReturnType(::name::)>){
-			callback(response.result);
+			if(callback != null) {
+				#if debug
+				trace('[::name::]: calling $callback with ${response.result}');
+				#end
+				callback(response.result);
+			}
 		});
 	}::end::
 }

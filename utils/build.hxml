@@ -6,4 +6,4 @@
 -resource types.json@JSONTypes
 -resource methods.json@JSONMethods
 -resource known_return_types.json@KnownTypes
--cmd echo Compilation Finished
+-cmd echo CodeGenerator Finished

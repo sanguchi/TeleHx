@@ -1,5 +1,6 @@
 -cp src
 -D analyzer-optimize
+# -D haxeJSON
 -main Main
 -dce no
 # --interp
@@ -22,10 +23,6 @@
 
 --next
 
--cpp output/cpp
-
---next
-
 -java output/java
 
 --next
@@ -35,6 +32,10 @@
 --next
 
 -hl output/c/main.c
+
+--next
+
+-cpp output\cpp
 
 --next
 
