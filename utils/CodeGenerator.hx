@@ -2,9 +2,9 @@ using StringTools;
 import haxe.io.Path;
 
 class CodeGenerator {
-  
+
   var basicTypes: Map<String, String> = [
-  "Integer" => "Int", 
+  "Integer" => "Int",
   "String" => "String",
   "Boolean" => "Bool",
   "Float number" => "Float",
@@ -14,11 +14,11 @@ class CodeGenerator {
   static function main() {
     new CodeGenerator();
   }
-  
-  var knownReturns: Dynamic = haxe.Json.parse(haxe.Resource.getString("KnownTypes"));
+
+  var knownReturns: Array<ReturnTypes> = haxe.Json.parse(haxe.Resource.getString("JSONReturns"));
 
   public function new() {
-    
+
     // Start generating types.
     trace("INFO: Generating Types");
     var template_text = haxe.Resource.getString("TeleHxTypes");
@@ -28,8 +28,8 @@ class CodeGenerator {
     var path = new Path("../src/telehx/TeleHxTypes.hx");
     trace('Saving types to ${path.toString()}');
     sys.io.File.saveContent(path.toString(),output);
-    
-    
+
+
     // Generate methods.
     trace("INFO: Generating Methods");
     template_text = haxe.Resource.getString("TeleHxMethods");
@@ -40,11 +40,11 @@ class CodeGenerator {
     trace('Saving methods to ${path.toString()}');
     sys.io.File.saveContent(path.toString(),output);
   }
-  
+
   function appendHx(resolve: String->Dynamic, name: String): String {
     return "Hx" + name;
   }
-  
+
   function getBaseType(resolve: String->Dynamic, name: String): String {
     if(basicTypes.exists(name)) {
       return basicTypes[name];
@@ -62,7 +62,7 @@ class CodeGenerator {
       }
     }
   }
-  
+
   function buildArrayDefinition(resolve: String->Dynamic, name: String): String {
     var current_word: String = name.replace("of", "").trim().split(" ")[0];
     trace('Building array definition for $name');
@@ -79,14 +79,19 @@ class CodeGenerator {
       }
     }
   }
-  
+
   function getReturnType(resolve: String->Dynamic, method: String): String {
-    if(Reflect.hasField(knownReturns, method)) {
-      return getBaseType(resolve, Reflect.field(knownReturns, method).toString());
+    for(returnType in knownReturns) {
+      if(returnType.method_name == method) {
+        return getBaseType(resolve, returnType.method_return);
+      }
     }
-    else {
-      trace('WARN: No return type found for method $method.');
-      return "HxTYPEFOR" + method;
-    }
+    trace('WARN: No return type found for method $method.');
+    return "HxTYPEFOR" + method;
   }
+}
+
+typedef ReturnTypes = {
+    method_name: String,
+    method_return: String,
 }

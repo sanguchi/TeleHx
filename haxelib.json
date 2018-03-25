@@ -1,0 +1,11 @@
+{
+  "name": "telehx",
+  "url" : "https://github.com/sanguchi/telehx/",
+  "license": "MIT",
+  "tags": ["bot", "telegram"],
+  "description": "Haxe client implementation of telegram bot api.",
+  "version": "0.0.1",
+  "releasenote": "Alpha stage i guess, it should work with a hello world bot.",
+  "contributors": ["Sanguchi"],
+  "dependencies": {}
+}

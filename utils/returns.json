@@ -1,0 +1,238 @@
+[
+    {
+        "method_name": "getUpdates",
+        "method_return": "Array of Update"
+    },
+    {
+        "method_name": "setWebhook",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "deleteWebhook",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "getWebhookInfo",
+        "method_return": "WebhookInfo"
+    },
+    {
+        "method_name": "getMe",
+        "method_return": "User"
+    },
+    {
+        "method_name": "sendMessage",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "forwardMessage",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendPhoto",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendAudio",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendDocument",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendVideo",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendVoice",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendVideoNote",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendMediaGroup",
+        "method_return": "Array of Message"
+    },
+    {
+        "method_name": "sendLocation",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "editMessageLiveLocation",
+        "method_return": "Message or Bool"
+    },
+    {
+        "method_name": "stopMessageLiveLocation",
+        "method_return": "Message or True"
+    },
+    {
+        "method_name": "sendVenue",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendContact",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "sendChatAction",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "getUserProfilePhotos",
+        "method_return": "UserProfilePhotos"
+    },
+    {
+        "method_name": "getFile",
+        "method_return": "File"
+    },
+    {
+        "method_name": "kickChatMember",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "unbanChatMember",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "restrictChatMember",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "promoteChatMember",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "exportChatInviteLink",
+        "method_return": "String"
+    },
+    {
+        "method_name": "setChatPhoto",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "deleteChatPhoto",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "setChatTitle",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "setChatDescription",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "pinChatMessage",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "unpinChatMessage",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "leaveChat",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "getChat",
+        "method_return": "Chat"
+    },
+    {
+        "method_name": "getChatAdministrators",
+        "method_return": "Array of ChatMember"
+    },
+    {
+        "method_name": "getChatMembersCount",
+        "method_return": "Integer"
+    },
+    {
+        "method_name": "getChatMember",
+        "method_return": "ChatMember"
+    },
+    {
+        "method_name": "setChatStickerSet",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "deleteChatStickerSet",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "answerCallbackQuery",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "editMessageText",
+        "method_return": "Message or True"
+    },
+    {
+        "method_name": "editMessageCaption",
+        "method_return": "Message or True"
+    },
+    {
+        "method_name": "editMessageReplyMarkup",
+        "method_return": "Message or True"
+    },
+    {
+        "method_name": "deleteMessage",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "sendSticker",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "getStickerSet",
+        "method_return": "StickerSet"
+    },
+    {
+        "method_name": "uploadStickerFile",
+        "method_return": "File"
+    },
+    {
+        "method_name": "createNewStickerSet",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "addStickerToSet",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "setStickerPositionInSet",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "deleteStickerFromSet",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "answerInlineQuery",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "sendInvoice",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "answerShippingQuery",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "answerPreCheckoutQuery",
+        "method_return": "Boolean"
+    },
+    {
+        "method_name": "sendGame",
+        "method_return": "Message"
+    },
+    {
+        "method_name": "setGameScore",
+        "method_return": "Message or True"
+    },
+    {
+        "method_name": "getGameHighScores",
+        "method_return": "Array of GameHighScore"
+    }
+]

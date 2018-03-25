@@ -9,9 +9,9 @@ types = list()
 parsed_html = fromstring(html)
 
 for xpath_h4 in parsed_html.xpath('//*/h4'):
-	
+
 	h4_text = xpath_h4.text_content()
-	
+
 	# Handle as Telegram API type Object.
 	if(h4_text[0].isupper() and ' ' not in h4_text):
 		print('Parsing Type {}'.format(h4_text))
@@ -24,14 +24,16 @@ for xpath_h4 in parsed_html.xpath('//*/h4'):
 			xpath_table = xpath_table.getnext()
 		xpath_fields = xpath_table.xpath('tbody/tr')[1:]
 		for xpath_field in xpath_fields:
-			
+
 			# grab all three columns for the given row: variable name, variable type, and description.
 			tds = xpath_field.xpath('td')
-			print(' - found field: {}'.format(tds[0].text_content()))
+			required = 'Optional.' not in tds[2].text_content()
+			print(' - found {}field: {}'.format('optional ' if not required else '', tds[0].text_content()))
 			fields.append({
 				'field': tds[0].text_content(),
 				'field_type': tds[1].text_content(),
 				'description': tds[2].text_content(),
+				'required': required,
 			})
 		types.append({
 		'name': h4_text,
@@ -50,7 +52,7 @@ for xpath_h4 in parsed_html.xpath('//*/h4'):
 			xpath_table = xpath_table.getnext()
 		xpath_fields = xpath_table.xpath('tbody/tr')[1:]
 		for xpath_field in xpath_fields:
-			
+
 			# grab all three columns for the given row: variable name, variable type, and description.
 			tds = xpath_field.xpath('td')
 			print(' - found parameter: {}'.format(tds[0].text_content()))

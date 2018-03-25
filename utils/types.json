@@ -6,52 +6,62 @@
             {
                 "field": "update_id",
                 "field_type": "Integer",
-                "description": "The update\u2018s unique identifier. Update identifiers start from a certain positive number and increase sequentially. This ID becomes especially handy if you\u2019re using Webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially."
+                "description": "The update\u2018s unique identifier. Update identifiers start from a certain positive number and increase sequentially. This ID becomes especially handy if you\u2019re using Webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.",
+                "required": true
             },
             {
                 "field": "message",
                 "field_type": "Message",
-                "description": "Optional. New incoming message of any kind \u2014 text, photo, sticker, etc."
+                "description": "Optional. New incoming message of any kind \u2014 text, photo, sticker, etc.",
+                "required": false
             },
             {
                 "field": "edited_message",
                 "field_type": "Message",
-                "description": "Optional. New version of a message that is known to the bot and was edited"
+                "description": "Optional. New version of a message that is known to the bot and was edited",
+                "required": false
             },
             {
                 "field": "channel_post",
                 "field_type": "Message",
-                "description": "Optional. New incoming channel post of any kind \u2014 text, photo, sticker, etc."
+                "description": "Optional. New incoming channel post of any kind \u2014 text, photo, sticker, etc.",
+                "required": false
             },
             {
                 "field": "edited_channel_post",
                 "field_type": "Message",
-                "description": "Optional. New version of a channel post that is known to the bot and was edited"
+                "description": "Optional. New version of a channel post that is known to the bot and was edited",
+                "required": false
             },
             {
                 "field": "inline_query",
                 "field_type": "InlineQuery",
-                "description": "Optional. New incoming inline query"
+                "description": "Optional. New incoming inline query",
+                "required": false
             },
             {
                 "field": "chosen_inline_result",
                 "field_type": "ChosenInlineResult",
-                "description": "Optional. The result of an inline query that was chosen by a user and sent to their chat partner. Please see our documentation on the feedback collecting for details on how to enable these updates for your bot."
+                "description": "Optional. The result of an inline query that was chosen by a user and sent to their chat partner. Please see our documentation on the feedback collecting for details on how to enable these updates for your bot.",
+                "required": false
             },
             {
                 "field": "callback_query",
                 "field_type": "CallbackQuery",
-                "description": "Optional. New incoming callback query"
+                "description": "Optional. New incoming callback query",
+                "required": false
             },
             {
                 "field": "shipping_query",
                 "field_type": "ShippingQuery",
-                "description": "Optional. New incoming shipping query. Only for invoices with flexible price"
+                "description": "Optional. New incoming shipping query. Only for invoices with flexible price",
+                "required": false
             },
             {
                 "field": "pre_checkout_query",
                 "field_type": "PreCheckoutQuery",
-                "description": "Optional. New incoming pre-checkout query. Contains full information about checkout"
+                "description": "Optional. New incoming pre-checkout query. Contains full information about checkout",
+                "required": false
             }
         ]
     },
@@ -62,37 +72,44 @@
             {
                 "field": "url",
                 "field_type": "String",
-                "description": "Webhook URL, may be empty if webhook is not set up"
+                "description": "Webhook URL, may be empty if webhook is not set up",
+                "required": true
             },
             {
                 "field": "has_custom_certificate",
                 "field_type": "Boolean",
-                "description": "True, if a custom certificate was provided for webhook certificate checks"
+                "description": "True, if a custom certificate was provided for webhook certificate checks",
+                "required": true
             },
             {
                 "field": "pending_update_count",
                 "field_type": "Integer",
-                "description": "Number of updates awaiting delivery"
+                "description": "Number of updates awaiting delivery",
+                "required": true
             },
             {
                 "field": "last_error_date",
                 "field_type": "Integer",
-                "description": "Optional. Unix time for the most recent error that happened when trying to deliver an update via webhook"
+                "description": "Optional. Unix time for the most recent error that happened when trying to deliver an update via webhook",
+                "required": false
             },
             {
                 "field": "last_error_message",
                 "field_type": "String",
-                "description": "Optional. Error message in human-readable format for the most recent error that happened when trying to deliver an update via webhook"
+                "description": "Optional. Error message in human-readable format for the most recent error that happened when trying to deliver an update via webhook",
+                "required": false
             },
             {
                 "field": "max_connections",
                 "field_type": "Integer",
-                "description": "Optional. Maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery"
+                "description": "Optional. Maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery",
+                "required": false
             },
             {
                 "field": "allowed_updates",
                 "field_type": "Array of String",
-                "description": "Optional. A list of update types the bot is subscribed to. Defaults to all update types"
+                "description": "Optional. A list of update types the bot is subscribed to. Defaults to all update types",
+                "required": false
             }
         ]
     },
@@ -103,32 +120,38 @@
             {
                 "field": "id",
                 "field_type": "Integer",
-                "description": "Unique identifier for this user or bot"
+                "description": "Unique identifier for this user or bot",
+                "required": true
             },
             {
                 "field": "is_bot",
                 "field_type": "Boolean",
-                "description": "True, if this user is a bot"
+                "description": "True, if this user is a bot",
+                "required": true
             },
             {
                 "field": "first_name",
                 "field_type": "String",
-                "description": "User\u2018s or bot\u2019s first name"
+                "description": "User\u2018s or bot\u2019s first name",
+                "required": true
             },
             {
                 "field": "last_name",
                 "field_type": "String",
-                "description": "Optional. User\u2018s or bot\u2019s last name"
+                "description": "Optional. User\u2018s or bot\u2019s last name",
+                "required": false
             },
             {
                 "field": "username",
                 "field_type": "String",
-                "description": "Optional. User\u2018s or bot\u2019s username"
+                "description": "Optional. User\u2018s or bot\u2019s username",
+                "required": false
             },
             {
                 "field": "language_code",
                 "field_type": "String",
-                "description": "Optional. IETF language tag of the user's language"
+                "description": "Optional. IETF language tag of the user's language",
+                "required": false
             }
         ]
     },
@@ -139,67 +162,80 @@
             {
                 "field": "id",
                 "field_type": "Integer",
-                "description": "Unique identifier for this chat. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+                "description": "Unique identifier for this chat. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+                "required": true
             },
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of chat, can be either \u201cprivate\u201d, \u201cgroup\u201d, \u201csupergroup\u201d or \u201cchannel\u201d"
+                "description": "Type of chat, can be either \u201cprivate\u201d, \u201cgroup\u201d, \u201csupergroup\u201d or \u201cchannel\u201d",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title, for supergroups, channels and group chats"
+                "description": "Optional. Title, for supergroups, channels and group chats",
+                "required": false
             },
             {
                 "field": "username",
                 "field_type": "String",
-                "description": "Optional. Username, for private chats, supergroups and channels if available"
+                "description": "Optional. Username, for private chats, supergroups and channels if available",
+                "required": false
             },
             {
                 "field": "first_name",
                 "field_type": "String",
-                "description": "Optional. First name of the other party in a private chat"
+                "description": "Optional. First name of the other party in a private chat",
+                "required": false
             },
             {
                 "field": "last_name",
                 "field_type": "String",
-                "description": "Optional. Last name of the other party in a private chat"
+                "description": "Optional. Last name of the other party in a private chat",
+                "required": false
             },
             {
                 "field": "all_members_are_administrators",
                 "field_type": "Boolean",
-                "description": "Optional. True if a group has \u2018All Members Are Admins\u2019 enabled."
+                "description": "Optional. True if a group has \u2018All Members Are Admins\u2019 enabled.",
+                "required": false
             },
             {
                 "field": "photo",
                 "field_type": "ChatPhoto",
-                "description": "Optional. Chat photo. Returned only in getChat."
+                "description": "Optional. Chat photo. Returned only in getChat.",
+                "required": false
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Description, for supergroups and channel chats. Returned only in getChat."
+                "description": "Optional. Description, for supergroups and channel chats. Returned only in getChat.",
+                "required": false
             },
             {
                 "field": "invite_link",
                 "field_type": "String",
-                "description": "Optional. Chat invite link, for supergroups and channel chats. Returned only in getChat."
+                "description": "Optional. Chat invite link, for supergroups and channel chats. Returned only in getChat.",
+                "required": false
             },
             {
                 "field": "pinned_message",
                 "field_type": "Message",
-                "description": "Optional. Pinned message, for supergroups and channel chats. Returned only in getChat."
+                "description": "Optional. Pinned message, for supergroups and channel chats. Returned only in getChat.",
+                "required": false
             },
             {
                 "field": "sticker_set_name",
                 "field_type": "String",
-                "description": "Optional. For supergroups, name of group sticker set. Returned only in getChat."
+                "description": "Optional. For supergroups, name of group sticker set. Returned only in getChat.",
+                "required": false
             },
             {
                 "field": "can_set_sticker_set",
                 "field_type": "Boolean",
-                "description": "Optional. True, if the bot can change the group sticker set. Returned only in getChat."
+                "description": "Optional. True, if the bot can change the group sticker set. Returned only in getChat.",
+                "required": false
             }
         ]
     },
@@ -210,212 +246,254 @@
             {
                 "field": "message_id",
                 "field_type": "Integer",
-                "description": "Unique message identifier inside this chat"
+                "description": "Unique message identifier inside this chat",
+                "required": true
             },
             {
                 "field": "from",
                 "field_type": "User",
-                "description": "Optional. Sender, empty for messages sent to channels"
+                "description": "Optional. Sender, empty for messages sent to channels",
+                "required": false
             },
             {
                 "field": "date",
                 "field_type": "Integer",
-                "description": "Date the message was sent in Unix time"
+                "description": "Date the message was sent in Unix time",
+                "required": true
             },
             {
                 "field": "chat",
                 "field_type": "Chat",
-                "description": "Conversation the message belongs to"
+                "description": "Conversation the message belongs to",
+                "required": true
             },
             {
                 "field": "forward_from",
                 "field_type": "User",
-                "description": "Optional. For forwarded messages, sender of the original message"
+                "description": "Optional. For forwarded messages, sender of the original message",
+                "required": false
             },
             {
                 "field": "forward_from_chat",
                 "field_type": "Chat",
-                "description": "Optional. For messages forwarded from channels, information about the original channel"
+                "description": "Optional. For messages forwarded from channels, information about the original channel",
+                "required": false
             },
             {
                 "field": "forward_from_message_id",
                 "field_type": "Integer",
-                "description": "Optional. For messages forwarded from channels, identifier of the original message in the channel"
+                "description": "Optional. For messages forwarded from channels, identifier of the original message in the channel",
+                "required": false
             },
             {
                 "field": "forward_signature",
                 "field_type": "String",
-                "description": "Optional. For messages forwarded from channels, signature of the post author if present"
+                "description": "Optional. For messages forwarded from channels, signature of the post author if present",
+                "required": false
             },
             {
                 "field": "forward_date",
                 "field_type": "Integer",
-                "description": "Optional. For forwarded messages, date the original message was sent in Unix time"
+                "description": "Optional. For forwarded messages, date the original message was sent in Unix time",
+                "required": false
             },
             {
                 "field": "reply_to_message",
                 "field_type": "Message",
-                "description": "Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply."
+                "description": "Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.",
+                "required": false
             },
             {
                 "field": "edit_date",
                 "field_type": "Integer",
-                "description": "Optional. Date the message was last edited in Unix time"
+                "description": "Optional. Date the message was last edited in Unix time",
+                "required": false
             },
             {
                 "field": "media_group_id",
                 "field_type": "String",
-                "description": "Optional. The unique identifier of a media message group this message belongs to"
+                "description": "Optional. The unique identifier of a media message group this message belongs to",
+                "required": false
             },
             {
                 "field": "author_signature",
                 "field_type": "String",
-                "description": "Optional. Signature of the post author for messages in channels"
+                "description": "Optional. Signature of the post author for messages in channels",
+                "required": false
             },
             {
                 "field": "text",
                 "field_type": "String",
-                "description": "Optional. For text messages, the actual UTF-8 text of the message, 0-4096 characters."
+                "description": "Optional. For text messages, the actual UTF-8 text of the message, 0-4096 characters.",
+                "required": false
             },
             {
                 "field": "entities",
                 "field_type": "Array of MessageEntity",
-                "description": "Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text"
+                "description": "Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text",
+                "required": false
             },
             {
                 "field": "caption_entities",
                 "field_type": "Array of MessageEntity",
-                "description": "Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption"
+                "description": "Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption",
+                "required": false
             },
             {
                 "field": "audio",
                 "field_type": "Audio",
-                "description": "Optional. Message is an audio file, information about the file"
+                "description": "Optional. Message is an audio file, information about the file",
+                "required": false
             },
             {
                 "field": "document",
                 "field_type": "Document",
-                "description": "Optional. Message is a general file, information about the file"
+                "description": "Optional. Message is a general file, information about the file",
+                "required": false
             },
             {
                 "field": "game",
                 "field_type": "Game",
-                "description": "Optional. Message is a game, information about the game. More about games \u00bb"
+                "description": "Optional. Message is a game, information about the game. More about games \u00bb",
+                "required": false
             },
             {
                 "field": "photo",
                 "field_type": "Array of PhotoSize",
-                "description": "Optional. Message is a photo, available sizes of the photo"
+                "description": "Optional. Message is a photo, available sizes of the photo",
+                "required": false
             },
             {
                 "field": "sticker",
                 "field_type": "Sticker",
-                "description": "Optional. Message is a sticker, information about the sticker"
+                "description": "Optional. Message is a sticker, information about the sticker",
+                "required": false
             },
             {
                 "field": "video",
                 "field_type": "Video",
-                "description": "Optional. Message is a video, information about the video"
+                "description": "Optional. Message is a video, information about the video",
+                "required": false
             },
             {
                 "field": "voice",
                 "field_type": "Voice",
-                "description": "Optional. Message is a voice message, information about the file"
+                "description": "Optional. Message is a voice message, information about the file",
+                "required": false
             },
             {
                 "field": "video_note",
                 "field_type": "VideoNote",
-                "description": "Optional. Message is a video note, information about the video message"
+                "description": "Optional. Message is a video note, information about the video message",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption for the audio, document, photo, video or voice, 0-200 characters"
+                "description": "Optional. Caption for the audio, document, photo, video or voice, 0-200 characters",
+                "required": false
             },
             {
                 "field": "contact",
                 "field_type": "Contact",
-                "description": "Optional. Message is a shared contact, information about the contact"
+                "description": "Optional. Message is a shared contact, information about the contact",
+                "required": false
             },
             {
                 "field": "location",
                 "field_type": "Location",
-                "description": "Optional. Message is a shared location, information about the location"
+                "description": "Optional. Message is a shared location, information about the location",
+                "required": false
             },
             {
                 "field": "venue",
                 "field_type": "Venue",
-                "description": "Optional. Message is a venue, information about the venue"
+                "description": "Optional. Message is a venue, information about the venue",
+                "required": false
             },
             {
                 "field": "new_chat_members",
                 "field_type": "Array of User",
-                "description": "Optional. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)"
+                "description": "Optional. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)",
+                "required": false
             },
             {
                 "field": "left_chat_member",
                 "field_type": "User",
-                "description": "Optional. A member was removed from the group, information about them (this member may be the bot itself)"
+                "description": "Optional. A member was removed from the group, information about them (this member may be the bot itself)",
+                "required": false
             },
             {
                 "field": "new_chat_title",
                 "field_type": "String",
-                "description": "Optional. A chat title was changed to this value"
+                "description": "Optional. A chat title was changed to this value",
+                "required": false
             },
             {
                 "field": "new_chat_photo",
                 "field_type": "Array of PhotoSize",
-                "description": "Optional. A chat photo was change to this value"
+                "description": "Optional. A chat photo was change to this value",
+                "required": false
             },
             {
                 "field": "delete_chat_photo",
                 "field_type": "True",
-                "description": "Optional. Service message: the chat photo was deleted"
+                "description": "Optional. Service message: the chat photo was deleted",
+                "required": false
             },
             {
                 "field": "group_chat_created",
                 "field_type": "True",
-                "description": "Optional. Service message: the group has been created"
+                "description": "Optional. Service message: the group has been created",
+                "required": false
             },
             {
                 "field": "supergroup_chat_created",
                 "field_type": "True",
-                "description": "Optional. Service message: the supergroup has been created. This field can\u2018t be received in a message coming through updates, because bot can\u2019t be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup."
+                "description": "Optional. Service message: the supergroup has been created. This field can\u2018t be received in a message coming through updates, because bot can\u2019t be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.",
+                "required": false
             },
             {
                 "field": "channel_chat_created",
                 "field_type": "True",
-                "description": "Optional. Service message: the channel has been created. This field can\u2018t be received in a message coming through updates, because bot can\u2019t be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel."
+                "description": "Optional. Service message: the channel has been created. This field can\u2018t be received in a message coming through updates, because bot can\u2019t be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.",
+                "required": false
             },
             {
                 "field": "migrate_to_chat_id",
                 "field_type": "Integer",
-                "description": "Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+                "description": "Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+                "required": false
             },
             {
                 "field": "migrate_from_chat_id",
                 "field_type": "Integer",
-                "description": "Optional. The supergroup has been migrated from a group with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+                "description": "Optional. The supergroup has been migrated from a group with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+                "required": false
             },
             {
                 "field": "pinned_message",
                 "field_type": "Message",
-                "description": "Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply."
+                "description": "Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply.",
+                "required": false
             },
             {
                 "field": "invoice",
                 "field_type": "Invoice",
-                "description": "Optional. Message is an invoice for a payment, information about the invoice. More about payments \u00bb"
+                "description": "Optional. Message is an invoice for a payment, information about the invoice. More about payments \u00bb",
+                "required": false
             },
             {
                 "field": "successful_payment",
                 "field_type": "SuccessfulPayment",
-                "description": "Optional. Message is a service message about a successful payment, information about the payment. More about payments \u00bb"
+                "description": "Optional. Message is a service message about a successful payment, information about the payment. More about payments \u00bb",
+                "required": false
             },
             {
                 "field": "connected_website",
                 "field_type": "String",
-                "description": "Optional. The domain name of the website on which the user has logged in. More about Telegram Login \u00bb"
+                "description": "Optional. The domain name of the website on which the user has logged in. More about Telegram Login \u00bb",
+                "required": false
             }
         ]
     },
@@ -426,27 +504,32 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the entity. Can be mention (@username), hashtag, bot_command, url, email, bold (bold text), italic (italic text), code (monowidth string), pre (monowidth block), text_link (for clickable text URLs), text_mention (for users without usernames)"
+                "description": "Type of the entity. Can be mention (@username), hashtag, bot_command, url, email, bold (bold text), italic (italic text), code (monowidth string), pre (monowidth block), text_link (for clickable text URLs), text_mention (for users without usernames)",
+                "required": true
             },
             {
                 "field": "offset",
                 "field_type": "Integer",
-                "description": "Offset in UTF-16 code units to the start of the entity"
+                "description": "Offset in UTF-16 code units to the start of the entity",
+                "required": true
             },
             {
                 "field": "length",
                 "field_type": "Integer",
-                "description": "Length of the entity in UTF-16 code units"
+                "description": "Length of the entity in UTF-16 code units",
+                "required": true
             },
             {
                 "field": "url",
                 "field_type": "String",
-                "description": "Optional. For \u201ctext_link\u201d only, url that will be opened after user taps on the text"
+                "description": "Optional. For \u201ctext_link\u201d only, url that will be opened after user taps on the text",
+                "required": false
             },
             {
                 "field": "user",
                 "field_type": "User",
-                "description": "Optional. For \u201ctext_mention\u201d only, the mentioned user"
+                "description": "Optional. For \u201ctext_mention\u201d only, the mentioned user",
+                "required": false
             }
         ]
     },
@@ -457,22 +540,26 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique identifier for this file"
+                "description": "Unique identifier for this file",
+                "required": true
             },
             {
                 "field": "width",
                 "field_type": "Integer",
-                "description": "Photo width"
+                "description": "Photo width",
+                "required": true
             },
             {
                 "field": "height",
                 "field_type": "Integer",
-                "description": "Photo height"
+                "description": "Photo height",
+                "required": true
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -483,32 +570,38 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique identifier for this file"
+                "description": "Unique identifier for this file",
+                "required": true
             },
             {
                 "field": "duration",
                 "field_type": "Integer",
-                "description": "Duration of the audio in seconds as defined by sender"
+                "description": "Duration of the audio in seconds as defined by sender",
+                "required": true
             },
             {
                 "field": "performer",
                 "field_type": "String",
-                "description": "Optional. Performer of the audio as defined by sender or by audio tags"
+                "description": "Optional. Performer of the audio as defined by sender or by audio tags",
+                "required": false
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title of the audio as defined by sender or by audio tags"
+                "description": "Optional. Title of the audio as defined by sender or by audio tags",
+                "required": false
             },
             {
                 "field": "mime_type",
                 "field_type": "String",
-                "description": "Optional. MIME type of the file as defined by sender"
+                "description": "Optional. MIME type of the file as defined by sender",
+                "required": false
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -519,27 +612,32 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique file identifier"
+                "description": "Unique file identifier",
+                "required": true
             },
             {
                 "field": "thumb",
                 "field_type": "PhotoSize",
-                "description": "Optional. Document thumbnail as defined by sender"
+                "description": "Optional. Document thumbnail as defined by sender",
+                "required": false
             },
             {
                 "field": "file_name",
                 "field_type": "String",
-                "description": "Optional. Original filename as defined by sender"
+                "description": "Optional. Original filename as defined by sender",
+                "required": false
             },
             {
                 "field": "mime_type",
                 "field_type": "String",
-                "description": "Optional. MIME type of the file as defined by sender"
+                "description": "Optional. MIME type of the file as defined by sender",
+                "required": false
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -550,37 +648,44 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique identifier for this file"
+                "description": "Unique identifier for this file",
+                "required": true
             },
             {
                 "field": "width",
                 "field_type": "Integer",
-                "description": "Video width as defined by sender"
+                "description": "Video width as defined by sender",
+                "required": true
             },
             {
                 "field": "height",
                 "field_type": "Integer",
-                "description": "Video height as defined by sender"
+                "description": "Video height as defined by sender",
+                "required": true
             },
             {
                 "field": "duration",
                 "field_type": "Integer",
-                "description": "Duration of the video in seconds as defined by sender"
+                "description": "Duration of the video in seconds as defined by sender",
+                "required": true
             },
             {
                 "field": "thumb",
                 "field_type": "PhotoSize",
-                "description": "Optional. Video thumbnail"
+                "description": "Optional. Video thumbnail",
+                "required": false
             },
             {
                 "field": "mime_type",
                 "field_type": "String",
-                "description": "Optional. Mime type of a file as defined by sender"
+                "description": "Optional. Mime type of a file as defined by sender",
+                "required": false
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -591,22 +696,26 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique identifier for this file"
+                "description": "Unique identifier for this file",
+                "required": true
             },
             {
                 "field": "duration",
                 "field_type": "Integer",
-                "description": "Duration of the audio in seconds as defined by sender"
+                "description": "Duration of the audio in seconds as defined by sender",
+                "required": true
             },
             {
                 "field": "mime_type",
                 "field_type": "String",
-                "description": "Optional. MIME type of the file as defined by sender"
+                "description": "Optional. MIME type of the file as defined by sender",
+                "required": false
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -617,27 +726,32 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique identifier for this file"
+                "description": "Unique identifier for this file",
+                "required": true
             },
             {
                 "field": "length",
                 "field_type": "Integer",
-                "description": "Video width and height as defined by sender"
+                "description": "Video width and height as defined by sender",
+                "required": true
             },
             {
                 "field": "duration",
                 "field_type": "Integer",
-                "description": "Duration of the video in seconds as defined by sender"
+                "description": "Duration of the video in seconds as defined by sender",
+                "required": true
             },
             {
                 "field": "thumb",
                 "field_type": "PhotoSize",
-                "description": "Optional. Video thumbnail"
+                "description": "Optional. Video thumbnail",
+                "required": false
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -648,22 +762,26 @@
             {
                 "field": "phone_number",
                 "field_type": "String",
-                "description": "Contact's phone number"
+                "description": "Contact's phone number",
+                "required": true
             },
             {
                 "field": "first_name",
                 "field_type": "String",
-                "description": "Contact's first name"
+                "description": "Contact's first name",
+                "required": true
             },
             {
                 "field": "last_name",
                 "field_type": "String",
-                "description": "Optional. Contact's last name"
+                "description": "Optional. Contact's last name",
+                "required": false
             },
             {
                 "field": "user_id",
                 "field_type": "Integer",
-                "description": "Optional. Contact's user identifier in Telegram"
+                "description": "Optional. Contact's user identifier in Telegram",
+                "required": false
             }
         ]
     },
@@ -674,12 +792,14 @@
             {
                 "field": "longitude",
                 "field_type": "Float",
-                "description": "Longitude as defined by sender"
+                "description": "Longitude as defined by sender",
+                "required": true
             },
             {
                 "field": "latitude",
                 "field_type": "Float",
-                "description": "Latitude as defined by sender"
+                "description": "Latitude as defined by sender",
+                "required": true
             }
         ]
     },
@@ -690,22 +810,26 @@
             {
                 "field": "location",
                 "field_type": "Location",
-                "description": "Venue location"
+                "description": "Venue location",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Name of the venue"
+                "description": "Name of the venue",
+                "required": true
             },
             {
                 "field": "address",
                 "field_type": "String",
-                "description": "Address of the venue"
+                "description": "Address of the venue",
+                "required": true
             },
             {
                 "field": "foursquare_id",
                 "field_type": "String",
-                "description": "Optional. Foursquare identifier of the venue"
+                "description": "Optional. Foursquare identifier of the venue",
+                "required": false
             }
         ]
     },
@@ -716,12 +840,14 @@
             {
                 "field": "total_count",
                 "field_type": "Integer",
-                "description": "Total number of profile pictures the target user has"
+                "description": "Total number of profile pictures the target user has",
+                "required": true
             },
             {
                 "field": "photos",
                 "field_type": "Array of Array of PhotoSize",
-                "description": "Requested profile pictures (in up to 4 sizes each)"
+                "description": "Requested profile pictures (in up to 4 sizes each)",
+                "required": true
             }
         ]
     },
@@ -732,17 +858,20 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique identifier for this file"
+                "description": "Unique identifier for this file",
+                "required": true
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size, if known"
+                "description": "Optional. File size, if known",
+                "required": false
             },
             {
                 "field": "file_path",
                 "field_type": "String",
-                "description": "Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file."
+                "description": "Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file.",
+                "required": false
             }
         ]
     },
@@ -753,22 +882,26 @@
             {
                 "field": "keyboard",
                 "field_type": "Array of Array of KeyboardButton",
-                "description": "Array of button rows, each represented by an Array of KeyboardButton objects"
+                "description": "Array of button rows, each represented by an Array of KeyboardButton objects",
+                "required": true
             },
             {
                 "field": "resize_keyboard",
                 "field_type": "Boolean",
-                "description": "Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboard."
+                "description": "Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboard.",
+                "required": false
             },
             {
                 "field": "one_time_keyboard",
                 "field_type": "Boolean",
-                "description": "Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat \u2013 the user can press a special button in the input field to see the custom keyboard again. Defaults to false."
+                "description": "Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat \u2013 the user can press a special button in the input field to see the custom keyboard again. Defaults to false.",
+                "required": false
             },
             {
                 "field": "selective",
                 "field_type": "Boolean",
-                "description": "Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.Example: A user requests to change the bot\u2018s language, bot replies to the request with a keyboard to select the new language. Other users in the group don\u2019t see the keyboard."
+                "description": "Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.Example: A user requests to change the bot\u2018s language, bot replies to the request with a keyboard to select the new language. Other users in the group don\u2019t see the keyboard.",
+                "required": false
             }
         ]
     },
@@ -779,17 +912,20 @@
             {
                 "field": "text",
                 "field_type": "String",
-                "description": "Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed"
+                "description": "Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed",
+                "required": true
             },
             {
                 "field": "request_contact",
                 "field_type": "Boolean",
-                "description": "Optional. If True, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only"
+                "description": "Optional. If True, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only",
+                "required": false
             },
             {
                 "field": "request_location",
                 "field_type": "Boolean",
-                "description": "Optional. If True, the user's current location will be sent when the button is pressed. Available in private chats only"
+                "description": "Optional. If True, the user's current location will be sent when the button is pressed. Available in private chats only",
+                "required": false
             }
         ]
     },
@@ -800,12 +936,14 @@
             {
                 "field": "remove_keyboard",
                 "field_type": "True",
-                "description": "Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup)"
+                "description": "Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup)",
+                "required": true
             },
             {
                 "field": "selective",
                 "field_type": "Boolean",
-                "description": "Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.Example: A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet."
+                "description": "Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.Example: A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.",
+                "required": false
             }
         ]
     },
@@ -816,7 +954,8 @@
             {
                 "field": "inline_keyboard",
                 "field_type": "Array of Array of InlineKeyboardButton",
-                "description": "Array of button rows, each represented by an Array of InlineKeyboardButton objects"
+                "description": "Array of button rows, each represented by an Array of InlineKeyboardButton objects",
+                "required": true
             }
         ]
     },
@@ -827,37 +966,44 @@
             {
                 "field": "text",
                 "field_type": "String",
-                "description": "Label text on the button"
+                "description": "Label text on the button",
+                "required": true
             },
             {
                 "field": "url",
                 "field_type": "String",
-                "description": "Optional. HTTP url to be opened when button is pressed"
+                "description": "Optional. HTTP url to be opened when button is pressed",
+                "required": false
             },
             {
                 "field": "callback_data",
                 "field_type": "String",
-                "description": "Optional. Data to be sent in a callback query to the bot when button is pressed, 1-64 bytes"
+                "description": "Optional. Data to be sent in a callback query to the bot when button is pressed, 1-64 bytes",
+                "required": false
             },
             {
                 "field": "switch_inline_query",
                 "field_type": "String",
-                "description": "Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot\u2018s username and the specified inline query in the input field. Can be empty, in which case just the bot\u2019s username will be inserted.Note: This offers an easy way for users to start using your bot in inline mode when they are currently in a private chat with it. Especially useful when combined with switch_pm\u2026 actions \u2013 in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen."
+                "description": "Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot\u2018s username and the specified inline query in the input field. Can be empty, in which case just the bot\u2019s username will be inserted.Note: This offers an easy way for users to start using your bot in inline mode when they are currently in a private chat with it. Especially useful when combined with switch_pm\u2026 actions \u2013 in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen.",
+                "required": false
             },
             {
                 "field": "switch_inline_query_current_chat",
                 "field_type": "String",
-                "description": "Optional. If set, pressing the button will insert the bot\u2018s username and the specified inline query in the current chat's input field. Can be empty, in which case only the bot\u2019s username will be inserted.This offers a quick way for the user to open your bot in inline mode in the same chat \u2013 good for selecting something from multiple options."
+                "description": "Optional. If set, pressing the button will insert the bot\u2018s username and the specified inline query in the current chat's input field. Can be empty, in which case only the bot\u2019s username will be inserted.This offers a quick way for the user to open your bot in inline mode in the same chat \u2013 good for selecting something from multiple options.",
+                "required": false
             },
             {
                 "field": "callback_game",
                 "field_type": "CallbackGame",
-                "description": "Optional. Description of the game that will be launched when the user presses the button.NOTE: This type of button must always be the first button in the first row."
+                "description": "Optional. Description of the game that will be launched when the user presses the button.NOTE: This type of button must always be the first button in the first row.",
+                "required": false
             },
             {
                 "field": "pay",
                 "field_type": "Boolean",
-                "description": "Optional. Specify True, to send a Pay button.NOTE: This type of button must always be the first button in the first row."
+                "description": "Optional. Specify True, to send a Pay button.NOTE: This type of button must always be the first button in the first row.",
+                "required": false
             }
         ]
     },
@@ -868,37 +1014,44 @@
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this query"
+                "description": "Unique identifier for this query",
+                "required": true
             },
             {
                 "field": "from",
                 "field_type": "User",
-                "description": "Sender"
+                "description": "Sender",
+                "required": true
             },
             {
                 "field": "message",
                 "field_type": "Message",
-                "description": "Optional. Message with the callback button that originated the query. Note that message content and message date will not be available if the message is too old"
+                "description": "Optional. Message with the callback button that originated the query. Note that message content and message date will not be available if the message is too old",
+                "required": false
             },
             {
                 "field": "inline_message_id",
                 "field_type": "String",
-                "description": "Optional. Identifier of the message sent via the bot in inline mode, that originated the query."
+                "description": "Optional. Identifier of the message sent via the bot in inline mode, that originated the query.",
+                "required": false
             },
             {
                 "field": "chat_instance",
                 "field_type": "String",
-                "description": "Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent. Useful for high scores in games."
+                "description": "Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent. Useful for high scores in games.",
+                "required": true
             },
             {
                 "field": "data",
                 "field_type": "String",
-                "description": "Optional. Data associated with the callback button. Be aware that a bad client can send arbitrary data in this field."
+                "description": "Optional. Data associated with the callback button. Be aware that a bad client can send arbitrary data in this field.",
+                "required": false
             },
             {
                 "field": "game_short_name",
                 "field_type": "String",
-                "description": "Optional. Short name of a Game to be returned, serves as the unique identifier for the game"
+                "description": "Optional. Short name of a Game to be returned, serves as the unique identifier for the game",
+                "required": false
             }
         ]
     },
@@ -909,12 +1062,14 @@
             {
                 "field": "force_reply",
                 "field_type": "True",
-                "description": "Shows reply interface to the user, as if they manually selected the bot\u2018s message and tapped \u2019Reply'"
+                "description": "Shows reply interface to the user, as if they manually selected the bot\u2018s message and tapped \u2019Reply'",
+                "required": true
             },
             {
                 "field": "selective",
                 "field_type": "Boolean",
-                "description": "Optional. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message."
+                "description": "Optional. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.",
+                "required": false
             }
         ]
     },
@@ -925,12 +1080,14 @@
             {
                 "field": "small_file_id",
                 "field_type": "String",
-                "description": "Unique file identifier of small (160x160) chat photo. This file_id can be used only for photo download."
+                "description": "Unique file identifier of small (160x160) chat photo. This file_id can be used only for photo download.",
+                "required": true
             },
             {
                 "field": "big_file_id",
                 "field_type": "String",
-                "description": "Unique file identifier of big (640x640) chat photo. This file_id can be used only for photo download."
+                "description": "Unique file identifier of big (640x640) chat photo. This file_id can be used only for photo download.",
+                "required": true
             }
         ]
     },
@@ -941,82 +1098,98 @@
             {
                 "field": "user",
                 "field_type": "User",
-                "description": "Information about the user"
+                "description": "Information about the user",
+                "required": true
             },
             {
                 "field": "status",
                 "field_type": "String",
-                "description": "The member's status in the chat. Can be \u201ccreator\u201d, \u201cadministrator\u201d, \u201cmember\u201d, \u201crestricted\u201d, \u201cleft\u201d or \u201ckicked\u201d"
+                "description": "The member's status in the chat. Can be \u201ccreator\u201d, \u201cadministrator\u201d, \u201cmember\u201d, \u201crestricted\u201d, \u201cleft\u201d or \u201ckicked\u201d",
+                "required": true
             },
             {
                 "field": "until_date",
                 "field_type": "Integer",
-                "description": "Optional. Restricted and kicked only. Date when restrictions will be lifted for this user, unix time"
+                "description": "Optional. Restricted and kicked only. Date when restrictions will be lifted for this user, unix time",
+                "required": false
             },
             {
                 "field": "can_be_edited",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the bot is allowed to edit administrator privileges of that user"
+                "description": "Optional. Administrators only. True, if the bot is allowed to edit administrator privileges of that user",
+                "required": false
             },
             {
                 "field": "can_change_info",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can change the chat title, photo and other settings"
+                "description": "Optional. Administrators only. True, if the administrator can change the chat title, photo and other settings",
+                "required": false
             },
             {
                 "field": "can_post_messages",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can post in the channel, channels only"
+                "description": "Optional. Administrators only. True, if the administrator can post in the channel, channels only",
+                "required": false
             },
             {
                 "field": "can_edit_messages",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can edit messages of other users and can pin messages, channels only"
+                "description": "Optional. Administrators only. True, if the administrator can edit messages of other users and can pin messages, channels only",
+                "required": false
             },
             {
                 "field": "can_delete_messages",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can delete messages of other users"
+                "description": "Optional. Administrators only. True, if the administrator can delete messages of other users",
+                "required": false
             },
             {
                 "field": "can_invite_users",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can invite new users to the chat"
+                "description": "Optional. Administrators only. True, if the administrator can invite new users to the chat",
+                "required": false
             },
             {
                 "field": "can_restrict_members",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can restrict, ban or unban chat members"
+                "description": "Optional. Administrators only. True, if the administrator can restrict, ban or unban chat members",
+                "required": false
             },
             {
                 "field": "can_pin_messages",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can pin messages, supergroups only"
+                "description": "Optional. Administrators only. True, if the administrator can pin messages, supergroups only",
+                "required": false
             },
             {
                 "field": "can_promote_members",
                 "field_type": "Boolean",
-                "description": "Optional. Administrators only. True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
+                "description": "Optional. Administrators only. True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)",
+                "required": false
             },
             {
                 "field": "can_send_messages",
                 "field_type": "Boolean",
-                "description": "Optional. Restricted only. True, if the user can send text messages, contacts, locations and venues"
+                "description": "Optional. Restricted only. True, if the user can send text messages, contacts, locations and venues",
+                "required": false
             },
             {
                 "field": "can_send_media_messages",
                 "field_type": "Boolean",
-                "description": "Optional. Restricted only. True, if the user can send audios, documents, photos, videos, video notes and voice notes, implies can_send_messages"
+                "description": "Optional. Restricted only. True, if the user can send audios, documents, photos, videos, video notes and voice notes, implies can_send_messages",
+                "required": false
             },
             {
                 "field": "can_send_other_messages",
                 "field_type": "Boolean",
-                "description": "Optional. Restricted only. True, if the user can send animations, games, stickers and use inline bots, implies can_send_media_messages"
+                "description": "Optional. Restricted only. True, if the user can send animations, games, stickers and use inline bots, implies can_send_media_messages",
+                "required": false
             },
             {
                 "field": "can_add_web_page_previews",
                 "field_type": "Boolean",
-                "description": "Optional. Restricted only. True, if user may add web page previews to his messages, implies can_send_media_messages"
+                "description": "Optional. Restricted only. True, if user may add web page previews to his messages, implies can_send_media_messages",
+                "required": false
             }
         ]
     },
@@ -1027,12 +1200,14 @@
             {
                 "field": "migrate_to_chat_id",
                 "field_type": "Integer",
-                "description": "Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier."
+                "description": "Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+                "required": false
             },
             {
                 "field": "retry_after",
                 "field_type": "Integer",
-                "description": "Optional. In case of exceeding flood control, the number of seconds left to wait before the request can be repeated"
+                "description": "Optional. In case of exceeding flood control, the number of seconds left to wait before the request can be repeated",
+                "required": false
             }
         ]
     },
@@ -1048,22 +1223,26 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be photo"
+                "description": "Type of the result, must be photo",
+                "required": true
             },
             {
                 "field": "media",
                 "field_type": "String",
-                "description": "File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass \"attach://<file_attach_name>\" to upload a new one using multipart/form-data under <file_attach_name> name. More info on Sending Files \u00bb"
+                "description": "File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass \"attach://<file_attach_name>\" to upload a new one using multipart/form-data under <file_attach_name> name. More info on Sending Files \u00bb",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the photo to be sent, 0-200 characters"
+                "description": "Optional. Caption of the photo to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             }
         ]
     },
@@ -1074,42 +1253,50 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be video"
+                "description": "Type of the result, must be video",
+                "required": true
             },
             {
                 "field": "media",
                 "field_type": "String",
-                "description": "File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass \"attach://<file_attach_name>\" to upload a new one using multipart/form-data under <file_attach_name> name. More info on Sending Files \u00bb"
+                "description": "File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass \"attach://<file_attach_name>\" to upload a new one using multipart/form-data under <file_attach_name> name. More info on Sending Files \u00bb",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the video to be sent, 0-200 characters"
+                "description": "Optional. Caption of the video to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "width",
                 "field_type": "Integer",
-                "description": "Optional. Video width"
+                "description": "Optional. Video width",
+                "required": false
             },
             {
                 "field": "height",
                 "field_type": "Integer",
-                "description": "Optional. Video height"
+                "description": "Optional. Video height",
+                "required": false
             },
             {
                 "field": "duration",
                 "field_type": "Integer",
-                "description": "Optional. Video duration"
+                "description": "Optional. Video duration",
+                "required": false
             },
             {
                 "field": "supports_streaming",
                 "field_type": "Boolean",
-                "description": "Optional. Pass True, if the uploaded video is suitable for streaming"
+                "description": "Optional. Pass True, if the uploaded video is suitable for streaming",
+                "required": false
             }
         ]
     },
@@ -1125,42 +1312,50 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique identifier for this file"
+                "description": "Unique identifier for this file",
+                "required": true
             },
             {
                 "field": "width",
                 "field_type": "Integer",
-                "description": "Sticker width"
+                "description": "Sticker width",
+                "required": true
             },
             {
                 "field": "height",
                 "field_type": "Integer",
-                "description": "Sticker height"
+                "description": "Sticker height",
+                "required": true
             },
             {
                 "field": "thumb",
                 "field_type": "PhotoSize",
-                "description": "Optional. Sticker thumbnail in the .webp or .jpg format"
+                "description": "Optional. Sticker thumbnail in the .webp or .jpg format",
+                "required": false
             },
             {
                 "field": "emoji",
                 "field_type": "String",
-                "description": "Optional. Emoji associated with the sticker"
+                "description": "Optional. Emoji associated with the sticker",
+                "required": false
             },
             {
                 "field": "set_name",
                 "field_type": "String",
-                "description": "Optional. Name of the sticker set to which the sticker belongs"
+                "description": "Optional. Name of the sticker set to which the sticker belongs",
+                "required": false
             },
             {
                 "field": "mask_position",
                 "field_type": "MaskPosition",
-                "description": "Optional. For mask stickers, the position where the mask should be placed"
+                "description": "Optional. For mask stickers, the position where the mask should be placed",
+                "required": false
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -1171,22 +1366,26 @@
             {
                 "field": "name",
                 "field_type": "String",
-                "description": "Sticker set name"
+                "description": "Sticker set name",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Sticker set title"
+                "description": "Sticker set title",
+                "required": true
             },
             {
                 "field": "contains_masks",
                 "field_type": "Boolean",
-                "description": "True, if the sticker set contains masks"
+                "description": "True, if the sticker set contains masks",
+                "required": true
             },
             {
                 "field": "stickers",
                 "field_type": "Array of Sticker",
-                "description": "List of all set stickers"
+                "description": "List of all set stickers",
+                "required": true
             }
         ]
     },
@@ -1197,22 +1396,26 @@
             {
                 "field": "point",
                 "field_type": "String",
-                "description": "The part of the face relative to which the mask should be placed. One of \u201cforehead\u201d, \u201ceyes\u201d, \u201cmouth\u201d, or \u201cchin\u201d."
+                "description": "The part of the face relative to which the mask should be placed. One of \u201cforehead\u201d, \u201ceyes\u201d, \u201cmouth\u201d, or \u201cchin\u201d.",
+                "required": true
             },
             {
                 "field": "x_shift",
                 "field_type": "Float number",
-                "description": "Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place mask just to the left of the default mask position."
+                "description": "Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place mask just to the left of the default mask position.",
+                "required": true
             },
             {
                 "field": "y_shift",
                 "field_type": "Float number",
-                "description": "Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. For example, 1.0 will place the mask just below the default mask position."
+                "description": "Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. For example, 1.0 will place the mask just below the default mask position.",
+                "required": true
             },
             {
                 "field": "scale",
                 "field_type": "Float number",
-                "description": "Mask scaling coefficient. For example, 2.0 means double size."
+                "description": "Mask scaling coefficient. For example, 2.0 means double size.",
+                "required": true
             }
         ]
     },
@@ -1223,27 +1426,32 @@
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this query"
+                "description": "Unique identifier for this query",
+                "required": true
             },
             {
                 "field": "from",
                 "field_type": "User",
-                "description": "Sender"
+                "description": "Sender",
+                "required": true
             },
             {
                 "field": "location",
                 "field_type": "Location",
-                "description": "Optional. Sender location, only for bots that request user location"
+                "description": "Optional. Sender location, only for bots that request user location",
+                "required": false
             },
             {
                 "field": "query",
                 "field_type": "String",
-                "description": "Text of the query (up to 512 characters)"
+                "description": "Text of the query (up to 512 characters)",
+                "required": true
             },
             {
                 "field": "offset",
                 "field_type": "String",
-                "description": "Offset of the results to be returned, can be controlled by the bot"
+                "description": "Offset of the results to be returned, can be controlled by the bot",
+                "required": true
             }
         ]
     },
@@ -1259,57 +1467,68 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be article"
+                "description": "Type of the result, must be article",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 Bytes"
+                "description": "Unique identifier for this result, 1-64 Bytes",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title of the result"
+                "description": "Title of the result",
+                "required": true
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Content of the message to be sent"
+                "description": "Content of the message to be sent",
+                "required": true
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "url",
                 "field_type": "String",
-                "description": "Optional. URL of the result"
+                "description": "Optional. URL of the result",
+                "required": false
             },
             {
                 "field": "hide_url",
                 "field_type": "Boolean",
-                "description": "Optional. Pass True, if you don't want the URL to be shown in the message"
+                "description": "Optional. Pass True, if you don't want the URL to be shown in the message",
+                "required": false
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Short description of the result"
+                "description": "Optional. Short description of the result",
+                "required": false
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "Optional. Url of the thumbnail for the result"
+                "description": "Optional. Url of the thumbnail for the result",
+                "required": false
             },
             {
                 "field": "thumb_width",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail width"
+                "description": "Optional. Thumbnail width",
+                "required": false
             },
             {
                 "field": "thumb_height",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail height"
+                "description": "Optional. Thumbnail height",
+                "required": false
             }
         ]
     },
@@ -1320,62 +1539,74 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be photo"
+                "description": "Type of the result, must be photo",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "photo_url",
                 "field_type": "String",
-                "description": "A valid URL of the photo. Photo must be in jpeg format. Photo size must not exceed 5MB"
+                "description": "A valid URL of the photo. Photo must be in jpeg format. Photo size must not exceed 5MB",
+                "required": true
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "URL of the thumbnail for the photo"
+                "description": "URL of the thumbnail for the photo",
+                "required": true
             },
             {
                 "field": "photo_width",
                 "field_type": "Integer",
-                "description": "Optional. Width of the photo"
+                "description": "Optional. Width of the photo",
+                "required": false
             },
             {
                 "field": "photo_height",
                 "field_type": "Integer",
-                "description": "Optional. Height of the photo"
+                "description": "Optional. Height of the photo",
+                "required": false
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title for the result"
+                "description": "Optional. Title for the result",
+                "required": false
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Short description of the result"
+                "description": "Optional. Short description of the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the photo to be sent, 0-200 characters"
+                "description": "Optional. Caption of the photo to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the photo"
+                "description": "Optional. Content of the message to be sent instead of the photo",
+                "required": false
             }
         ]
     },
@@ -1386,62 +1617,74 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be gif"
+                "description": "Type of the result, must be gif",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "gif_url",
                 "field_type": "String",
-                "description": "A valid URL for the GIF file. File size must not exceed 1MB"
+                "description": "A valid URL for the GIF file. File size must not exceed 1MB",
+                "required": true
             },
             {
                 "field": "gif_width",
                 "field_type": "Integer",
-                "description": "Optional. Width of the GIF"
+                "description": "Optional. Width of the GIF",
+                "required": false
             },
             {
                 "field": "gif_height",
                 "field_type": "Integer",
-                "description": "Optional. Height of the GIF"
+                "description": "Optional. Height of the GIF",
+                "required": false
             },
             {
                 "field": "gif_duration",
                 "field_type": "Integer",
-                "description": "Optional. Duration of the GIF"
+                "description": "Optional. Duration of the GIF",
+                "required": false
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "URL of the static thumbnail for the result (jpeg or gif)"
+                "description": "URL of the static thumbnail for the result (jpeg or gif)",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title for the result"
+                "description": "Optional. Title for the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the GIF file to be sent, 0-200 characters"
+                "description": "Optional. Caption of the GIF file to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the GIF animation"
+                "description": "Optional. Content of the message to be sent instead of the GIF animation",
+                "required": false
             }
         ]
     },
@@ -1452,62 +1695,74 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be mpeg4_gif"
+                "description": "Type of the result, must be mpeg4_gif",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "mpeg4_url",
                 "field_type": "String",
-                "description": "A valid URL for the MP4 file. File size must not exceed 1MB"
+                "description": "A valid URL for the MP4 file. File size must not exceed 1MB",
+                "required": true
             },
             {
                 "field": "mpeg4_width",
                 "field_type": "Integer",
-                "description": "Optional. Video width"
+                "description": "Optional. Video width",
+                "required": false
             },
             {
                 "field": "mpeg4_height",
                 "field_type": "Integer",
-                "description": "Optional. Video height"
+                "description": "Optional. Video height",
+                "required": false
             },
             {
                 "field": "mpeg4_duration",
                 "field_type": "Integer",
-                "description": "Optional. Video duration"
+                "description": "Optional. Video duration",
+                "required": false
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "URL of the static thumbnail (jpeg or gif) for the result"
+                "description": "URL of the static thumbnail (jpeg or gif) for the result",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title for the result"
+                "description": "Optional. Title for the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the MPEG-4 file to be sent, 0-200 characters"
+                "description": "Optional. Caption of the MPEG-4 file to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the video animation"
+                "description": "Optional. Content of the message to be sent instead of the video animation",
+                "required": false
             }
         ]
     },
@@ -1518,72 +1773,86 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be video"
+                "description": "Type of the result, must be video",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "video_url",
                 "field_type": "String",
-                "description": "A valid URL for the embedded video player or video file"
+                "description": "A valid URL for the embedded video player or video file",
+                "required": true
             },
             {
                 "field": "mime_type",
                 "field_type": "String",
-                "description": "Mime type of the content of video url, \u201ctext/html\u201d or \u201cvideo/mp4\u201d"
+                "description": "Mime type of the content of video url, \u201ctext/html\u201d or \u201cvideo/mp4\u201d",
+                "required": true
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "URL of the thumbnail (jpeg only) for the video"
+                "description": "URL of the thumbnail (jpeg only) for the video",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title for the result"
+                "description": "Title for the result",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the video to be sent, 0-200 characters"
+                "description": "Optional. Caption of the video to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "video_width",
                 "field_type": "Integer",
-                "description": "Optional. Video width"
+                "description": "Optional. Video width",
+                "required": false
             },
             {
                 "field": "video_height",
                 "field_type": "Integer",
-                "description": "Optional. Video height"
+                "description": "Optional. Video height",
+                "required": false
             },
             {
                 "field": "video_duration",
                 "field_type": "Integer",
-                "description": "Optional. Video duration in seconds"
+                "description": "Optional. Video duration in seconds",
+                "required": false
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Short description of the result"
+                "description": "Optional. Short description of the result",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video)."
+                "description": "Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).",
+                "required": false
             }
         ]
     },
@@ -1594,52 +1863,62 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be audio"
+                "description": "Type of the result, must be audio",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "audio_url",
                 "field_type": "String",
-                "description": "A valid URL for the audio file"
+                "description": "A valid URL for the audio file",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title"
+                "description": "Title",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption, 0-200 characters"
+                "description": "Optional. Caption, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "performer",
                 "field_type": "String",
-                "description": "Optional. Performer"
+                "description": "Optional. Performer",
+                "required": false
             },
             {
                 "field": "audio_duration",
                 "field_type": "Integer",
-                "description": "Optional. Audio duration in seconds"
+                "description": "Optional. Audio duration in seconds",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the audio"
+                "description": "Optional. Content of the message to be sent instead of the audio",
+                "required": false
             }
         ]
     },
@@ -1650,47 +1929,56 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be voice"
+                "description": "Type of the result, must be voice",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "voice_url",
                 "field_type": "String",
-                "description": "A valid URL for the voice recording"
+                "description": "A valid URL for the voice recording",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Recording title"
+                "description": "Recording title",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption, 0-200 characters"
+                "description": "Optional. Caption, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "voice_duration",
                 "field_type": "Integer",
-                "description": "Optional. Recording duration in seconds"
+                "description": "Optional. Recording duration in seconds",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the voice recording"
+                "description": "Optional. Content of the message to be sent instead of the voice recording",
+                "required": false
             }
         ]
     },
@@ -1701,67 +1989,80 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be document"
+                "description": "Type of the result, must be document",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title for the result"
+                "description": "Title for the result",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the document to be sent, 0-200 characters"
+                "description": "Optional. Caption of the document to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "document_url",
                 "field_type": "String",
-                "description": "A valid URL for the file"
+                "description": "A valid URL for the file",
+                "required": true
             },
             {
                 "field": "mime_type",
                 "field_type": "String",
-                "description": "Mime type of the content of the file, either \u201capplication/pdf\u201d or \u201capplication/zip\u201d"
+                "description": "Mime type of the content of the file, either \u201capplication/pdf\u201d or \u201capplication/zip\u201d",
+                "required": true
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Short description of the result"
+                "description": "Optional. Short description of the result",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the file"
+                "description": "Optional. Content of the message to be sent instead of the file",
+                "required": false
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "Optional. URL of the thumbnail (jpeg only) for the file"
+                "description": "Optional. URL of the thumbnail (jpeg only) for the file",
+                "required": false
             },
             {
                 "field": "thumb_width",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail width"
+                "description": "Optional. Thumbnail width",
+                "required": false
             },
             {
                 "field": "thumb_height",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail height"
+                "description": "Optional. Thumbnail height",
+                "required": false
             }
         ]
     },
@@ -1772,57 +2073,68 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be location"
+                "description": "Type of the result, must be location",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 Bytes"
+                "description": "Unique identifier for this result, 1-64 Bytes",
+                "required": true
             },
             {
                 "field": "latitude",
                 "field_type": "Float number",
-                "description": "Location latitude in degrees"
+                "description": "Location latitude in degrees",
+                "required": true
             },
             {
                 "field": "longitude",
                 "field_type": "Float number",
-                "description": "Location longitude in degrees"
+                "description": "Location longitude in degrees",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Location title"
+                "description": "Location title",
+                "required": true
             },
             {
                 "field": "live_period",
                 "field_type": "Integer",
-                "description": "Optional. Period in seconds for which the location can be updated, should be between 60 and 86400."
+                "description": "Optional. Period in seconds for which the location can be updated, should be between 60 and 86400.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the location"
+                "description": "Optional. Content of the message to be sent instead of the location",
+                "required": false
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "Optional. Url of the thumbnail for the result"
+                "description": "Optional. Url of the thumbnail for the result",
+                "required": false
             },
             {
                 "field": "thumb_width",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail width"
+                "description": "Optional. Thumbnail width",
+                "required": false
             },
             {
                 "field": "thumb_height",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail height"
+                "description": "Optional. Thumbnail height",
+                "required": false
             }
         ]
     },
@@ -1833,62 +2145,74 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be venue"
+                "description": "Type of the result, must be venue",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 Bytes"
+                "description": "Unique identifier for this result, 1-64 Bytes",
+                "required": true
             },
             {
                 "field": "latitude",
                 "field_type": "Float",
-                "description": "Latitude of the venue location in degrees"
+                "description": "Latitude of the venue location in degrees",
+                "required": true
             },
             {
                 "field": "longitude",
                 "field_type": "Float",
-                "description": "Longitude of the venue location in degrees"
+                "description": "Longitude of the venue location in degrees",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title of the venue"
+                "description": "Title of the venue",
+                "required": true
             },
             {
                 "field": "address",
                 "field_type": "String",
-                "description": "Address of the venue"
+                "description": "Address of the venue",
+                "required": true
             },
             {
                 "field": "foursquare_id",
                 "field_type": "String",
-                "description": "Optional. Foursquare identifier of the venue if known"
+                "description": "Optional. Foursquare identifier of the venue if known",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the venue"
+                "description": "Optional. Content of the message to be sent instead of the venue",
+                "required": false
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "Optional. Url of the thumbnail for the result"
+                "description": "Optional. Url of the thumbnail for the result",
+                "required": false
             },
             {
                 "field": "thumb_width",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail width"
+                "description": "Optional. Thumbnail width",
+                "required": false
             },
             {
                 "field": "thumb_height",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail height"
+                "description": "Optional. Thumbnail height",
+                "required": false
             }
         ]
     },
@@ -1899,52 +2223,62 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be contact"
+                "description": "Type of the result, must be contact",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 Bytes"
+                "description": "Unique identifier for this result, 1-64 Bytes",
+                "required": true
             },
             {
                 "field": "phone_number",
                 "field_type": "String",
-                "description": "Contact's phone number"
+                "description": "Contact's phone number",
+                "required": true
             },
             {
                 "field": "first_name",
                 "field_type": "String",
-                "description": "Contact's first name"
+                "description": "Contact's first name",
+                "required": true
             },
             {
                 "field": "last_name",
                 "field_type": "String",
-                "description": "Optional. Contact's last name"
+                "description": "Optional. Contact's last name",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the contact"
+                "description": "Optional. Content of the message to be sent instead of the contact",
+                "required": false
             },
             {
                 "field": "thumb_url",
                 "field_type": "String",
-                "description": "Optional. Url of the thumbnail for the result"
+                "description": "Optional. Url of the thumbnail for the result",
+                "required": false
             },
             {
                 "field": "thumb_width",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail width"
+                "description": "Optional. Thumbnail width",
+                "required": false
             },
             {
                 "field": "thumb_height",
                 "field_type": "Integer",
-                "description": "Optional. Thumbnail height"
+                "description": "Optional. Thumbnail height",
+                "required": false
             }
         ]
     },
@@ -1955,22 +2289,26 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be game"
+                "description": "Type of the result, must be game",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "game_short_name",
                 "field_type": "String",
-                "description": "Short name of the game"
+                "description": "Short name of the game",
+                "required": true
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             }
         ]
     },
@@ -1981,47 +2319,56 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be photo"
+                "description": "Type of the result, must be photo",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "photo_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier of the photo"
+                "description": "A valid file identifier of the photo",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title for the result"
+                "description": "Optional. Title for the result",
+                "required": false
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Short description of the result"
+                "description": "Optional. Short description of the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the photo to be sent, 0-200 characters"
+                "description": "Optional. Caption of the photo to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the photo"
+                "description": "Optional. Content of the message to be sent instead of the photo",
+                "required": false
             }
         ]
     },
@@ -2032,42 +2379,50 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be gif"
+                "description": "Type of the result, must be gif",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "gif_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier for the GIF file"
+                "description": "A valid file identifier for the GIF file",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title for the result"
+                "description": "Optional. Title for the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the GIF file to be sent, 0-200 characters"
+                "description": "Optional. Caption of the GIF file to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the GIF animation"
+                "description": "Optional. Content of the message to be sent instead of the GIF animation",
+                "required": false
             }
         ]
     },
@@ -2078,42 +2433,50 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be mpeg4_gif"
+                "description": "Type of the result, must be mpeg4_gif",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "mpeg4_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier for the MP4 file"
+                "description": "A valid file identifier for the MP4 file",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Optional. Title for the result"
+                "description": "Optional. Title for the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the MPEG-4 file to be sent, 0-200 characters"
+                "description": "Optional. Caption of the MPEG-4 file to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the video animation"
+                "description": "Optional. Content of the message to be sent instead of the video animation",
+                "required": false
             }
         ]
     },
@@ -2124,27 +2487,32 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be sticker"
+                "description": "Type of the result, must be sticker",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "sticker_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier of the sticker"
+                "description": "A valid file identifier of the sticker",
+                "required": true
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the sticker"
+                "description": "Optional. Content of the message to be sent instead of the sticker",
+                "required": false
             }
         ]
     },
@@ -2155,47 +2523,56 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be document"
+                "description": "Type of the result, must be document",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title for the result"
+                "description": "Title for the result",
+                "required": true
             },
             {
                 "field": "document_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier for the file"
+                "description": "A valid file identifier for the file",
+                "required": true
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Short description of the result"
+                "description": "Optional. Short description of the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the document to be sent, 0-200 characters"
+                "description": "Optional. Caption of the document to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the file"
+                "description": "Optional. Content of the message to be sent instead of the file",
+                "required": false
             }
         ]
     },
@@ -2206,47 +2583,56 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be video"
+                "description": "Type of the result, must be video",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "video_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier for the video file"
+                "description": "A valid file identifier for the video file",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title for the result"
+                "description": "Title for the result",
+                "required": true
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Optional. Short description of the result"
+                "description": "Optional. Short description of the result",
+                "required": false
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption of the video to be sent, 0-200 characters"
+                "description": "Optional. Caption of the video to be sent, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the video"
+                "description": "Optional. Content of the message to be sent instead of the video",
+                "required": false
             }
         ]
     },
@@ -2257,42 +2643,50 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be voice"
+                "description": "Type of the result, must be voice",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "voice_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier for the voice message"
+                "description": "A valid file identifier for the voice message",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Voice message title"
+                "description": "Voice message title",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption, 0-200 characters"
+                "description": "Optional. Caption, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the voice message"
+                "description": "Optional. Content of the message to be sent instead of the voice message",
+                "required": false
             }
         ]
     },
@@ -2303,37 +2697,44 @@
             {
                 "field": "type",
                 "field_type": "String",
-                "description": "Type of the result, must be audio"
+                "description": "Type of the result, must be audio",
+                "required": true
             },
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique identifier for this result, 1-64 bytes"
+                "description": "Unique identifier for this result, 1-64 bytes",
+                "required": true
             },
             {
                 "field": "audio_file_id",
                 "field_type": "String",
-                "description": "A valid file identifier for the audio file"
+                "description": "A valid file identifier for the audio file",
+                "required": true
             },
             {
                 "field": "caption",
                 "field_type": "String",
-                "description": "Optional. Caption, 0-200 characters"
+                "description": "Optional. Caption, 0-200 characters",
+                "required": false
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.",
+                "required": false
             },
             {
                 "field": "reply_markup",
                 "field_type": "InlineKeyboardMarkup",
-                "description": "Optional. Inline keyboard attached to the message"
+                "description": "Optional. Inline keyboard attached to the message",
+                "required": false
             },
             {
                 "field": "input_message_content",
                 "field_type": "InputMessageContent",
-                "description": "Optional. Content of the message to be sent instead of the audio"
+                "description": "Optional. Content of the message to be sent instead of the audio",
+                "required": false
             }
         ]
     },
@@ -2349,17 +2750,20 @@
             {
                 "field": "message_text",
                 "field_type": "String",
-                "description": "Text of the message to be sent, 1-4096 characters"
+                "description": "Text of the message to be sent, 1-4096 characters",
+                "required": true
             },
             {
                 "field": "parse_mode",
                 "field_type": "String",
-                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message."
+                "description": "Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.",
+                "required": false
             },
             {
                 "field": "disable_web_page_preview",
                 "field_type": "Boolean",
-                "description": "Optional. Disables link previews for links in the sent message"
+                "description": "Optional. Disables link previews for links in the sent message",
+                "required": false
             }
         ]
     },
@@ -2370,17 +2774,20 @@
             {
                 "field": "latitude",
                 "field_type": "Float",
-                "description": "Latitude of the location in degrees"
+                "description": "Latitude of the location in degrees",
+                "required": true
             },
             {
                 "field": "longitude",
                 "field_type": "Float",
-                "description": "Longitude of the location in degrees"
+                "description": "Longitude of the location in degrees",
+                "required": true
             },
             {
                 "field": "live_period",
                 "field_type": "Integer",
-                "description": "Optional. Period in seconds for which the location can be updated, should be between 60 and 86400."
+                "description": "Optional. Period in seconds for which the location can be updated, should be between 60 and 86400.",
+                "required": false
             }
         ]
     },
@@ -2391,27 +2798,32 @@
             {
                 "field": "latitude",
                 "field_type": "Float",
-                "description": "Latitude of the venue in degrees"
+                "description": "Latitude of the venue in degrees",
+                "required": true
             },
             {
                 "field": "longitude",
                 "field_type": "Float",
-                "description": "Longitude of the venue in degrees"
+                "description": "Longitude of the venue in degrees",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Name of the venue"
+                "description": "Name of the venue",
+                "required": true
             },
             {
                 "field": "address",
                 "field_type": "String",
-                "description": "Address of the venue"
+                "description": "Address of the venue",
+                "required": true
             },
             {
                 "field": "foursquare_id",
                 "field_type": "String",
-                "description": "Optional. Foursquare identifier of the venue, if known"
+                "description": "Optional. Foursquare identifier of the venue, if known",
+                "required": false
             }
         ]
     },
@@ -2422,17 +2834,20 @@
             {
                 "field": "phone_number",
                 "field_type": "String",
-                "description": "Contact's phone number"
+                "description": "Contact's phone number",
+                "required": true
             },
             {
                 "field": "first_name",
                 "field_type": "String",
-                "description": "Contact's first name"
+                "description": "Contact's first name",
+                "required": true
             },
             {
                 "field": "last_name",
                 "field_type": "String",
-                "description": "Optional. Contact's last name"
+                "description": "Optional. Contact's last name",
+                "required": false
             }
         ]
     },
@@ -2443,27 +2858,32 @@
             {
                 "field": "result_id",
                 "field_type": "String",
-                "description": "The unique identifier for the result that was chosen"
+                "description": "The unique identifier for the result that was chosen",
+                "required": true
             },
             {
                 "field": "from",
                 "field_type": "User",
-                "description": "The user that chose the result"
+                "description": "The user that chose the result",
+                "required": true
             },
             {
                 "field": "location",
                 "field_type": "Location",
-                "description": "Optional. Sender location, only for bots that require user location"
+                "description": "Optional. Sender location, only for bots that require user location",
+                "required": false
             },
             {
                 "field": "inline_message_id",
                 "field_type": "String",
-                "description": "Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will be also received in callback queries and can be used to edit the message."
+                "description": "Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will be also received in callback queries and can be used to edit the message.",
+                "required": false
             },
             {
                 "field": "query",
                 "field_type": "String",
-                "description": "The query that was used to obtain the result"
+                "description": "The query that was used to obtain the result",
+                "required": true
             }
         ]
     },
@@ -2474,12 +2894,14 @@
             {
                 "field": "label",
                 "field_type": "String",
-                "description": "Portion label"
+                "description": "Portion label",
+                "required": true
             },
             {
                 "field": "amount",
                 "field_type": "Integer",
-                "description": "Price of the product in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+                "description": "Price of the product in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
+                "required": true
             }
         ]
     },
@@ -2490,27 +2912,32 @@
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Product name"
+                "description": "Product name",
+                "required": true
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Product description"
+                "description": "Product description",
+                "required": true
             },
             {
                 "field": "start_parameter",
                 "field_type": "String",
-                "description": "Unique bot deep-linking parameter that can be used to generate this invoice"
+                "description": "Unique bot deep-linking parameter that can be used to generate this invoice",
+                "required": true
             },
             {
                 "field": "currency",
                 "field_type": "String",
-                "description": "Three-letter ISO 4217 currency code"
+                "description": "Three-letter ISO 4217 currency code",
+                "required": true
             },
             {
                 "field": "total_amount",
                 "field_type": "Integer",
-                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
+                "required": true
             }
         ]
     },
@@ -2521,32 +2948,38 @@
             {
                 "field": "country_code",
                 "field_type": "String",
-                "description": "ISO 3166-1 alpha-2 country code"
+                "description": "ISO 3166-1 alpha-2 country code",
+                "required": true
             },
             {
                 "field": "state",
                 "field_type": "String",
-                "description": "State, if applicable"
+                "description": "State, if applicable",
+                "required": true
             },
             {
                 "field": "city",
                 "field_type": "String",
-                "description": "City"
+                "description": "City",
+                "required": true
             },
             {
                 "field": "street_line1",
                 "field_type": "String",
-                "description": "First line for the address"
+                "description": "First line for the address",
+                "required": true
             },
             {
                 "field": "street_line2",
                 "field_type": "String",
-                "description": "Second line for the address"
+                "description": "Second line for the address",
+                "required": true
             },
             {
                 "field": "post_code",
                 "field_type": "String",
-                "description": "Address post code"
+                "description": "Address post code",
+                "required": true
             }
         ]
     },
@@ -2557,22 +2990,26 @@
             {
                 "field": "name",
                 "field_type": "String",
-                "description": "Optional. User name"
+                "description": "Optional. User name",
+                "required": false
             },
             {
                 "field": "phone_number",
                 "field_type": "String",
-                "description": "Optional. User's phone number"
+                "description": "Optional. User's phone number",
+                "required": false
             },
             {
                 "field": "email",
                 "field_type": "String",
-                "description": "Optional. User email"
+                "description": "Optional. User email",
+                "required": false
             },
             {
                 "field": "shipping_address",
                 "field_type": "ShippingAddress",
-                "description": "Optional. User shipping address"
+                "description": "Optional. User shipping address",
+                "required": false
             }
         ]
     },
@@ -2583,17 +3020,20 @@
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Shipping option identifier"
+                "description": "Shipping option identifier",
+                "required": true
             },
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Option title"
+                "description": "Option title",
+                "required": true
             },
             {
                 "field": "prices",
                 "field_type": "Array of LabeledPrice",
-                "description": "List of price portions"
+                "description": "List of price portions",
+                "required": true
             }
         ]
     },
@@ -2604,37 +3044,44 @@
             {
                 "field": "currency",
                 "field_type": "String",
-                "description": "Three-letter ISO 4217 currency code"
+                "description": "Three-letter ISO 4217 currency code",
+                "required": true
             },
             {
                 "field": "total_amount",
                 "field_type": "Integer",
-                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
+                "required": true
             },
             {
                 "field": "invoice_payload",
                 "field_type": "String",
-                "description": "Bot specified invoice payload"
+                "description": "Bot specified invoice payload",
+                "required": true
             },
             {
                 "field": "shipping_option_id",
                 "field_type": "String",
-                "description": "Optional. Identifier of the shipping option chosen by the user"
+                "description": "Optional. Identifier of the shipping option chosen by the user",
+                "required": false
             },
             {
                 "field": "order_info",
                 "field_type": "OrderInfo",
-                "description": "Optional. Order info provided by the user"
+                "description": "Optional. Order info provided by the user",
+                "required": false
             },
             {
                 "field": "telegram_payment_charge_id",
                 "field_type": "String",
-                "description": "Telegram payment identifier"
+                "description": "Telegram payment identifier",
+                "required": true
             },
             {
                 "field": "provider_payment_charge_id",
                 "field_type": "String",
-                "description": "Provider payment identifier"
+                "description": "Provider payment identifier",
+                "required": true
             }
         ]
     },
@@ -2645,22 +3092,26 @@
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique query identifier"
+                "description": "Unique query identifier",
+                "required": true
             },
             {
                 "field": "from",
                 "field_type": "User",
-                "description": "User who sent the query"
+                "description": "User who sent the query",
+                "required": true
             },
             {
                 "field": "invoice_payload",
                 "field_type": "String",
-                "description": "Bot specified invoice payload"
+                "description": "Bot specified invoice payload",
+                "required": true
             },
             {
                 "field": "shipping_address",
                 "field_type": "ShippingAddress",
-                "description": "User specified shipping address"
+                "description": "User specified shipping address",
+                "required": true
             }
         ]
     },
@@ -2671,37 +3122,44 @@
             {
                 "field": "id",
                 "field_type": "String",
-                "description": "Unique query identifier"
+                "description": "Unique query identifier",
+                "required": true
             },
             {
                 "field": "from",
                 "field_type": "User",
-                "description": "User who sent the query"
+                "description": "User who sent the query",
+                "required": true
             },
             {
                 "field": "currency",
                 "field_type": "String",
-                "description": "Three-letter ISO 4217 currency code"
+                "description": "Three-letter ISO 4217 currency code",
+                "required": true
             },
             {
                 "field": "total_amount",
                 "field_type": "Integer",
-                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+                "description": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
+                "required": true
             },
             {
                 "field": "invoice_payload",
                 "field_type": "String",
-                "description": "Bot specified invoice payload"
+                "description": "Bot specified invoice payload",
+                "required": true
             },
             {
                 "field": "shipping_option_id",
                 "field_type": "String",
-                "description": "Optional. Identifier of the shipping option chosen by the user"
+                "description": "Optional. Identifier of the shipping option chosen by the user",
+                "required": false
             },
             {
                 "field": "order_info",
                 "field_type": "OrderInfo",
-                "description": "Optional. Order info provided by the user"
+                "description": "Optional. Order info provided by the user",
+                "required": false
             }
         ]
     },
@@ -2712,32 +3170,38 @@
             {
                 "field": "title",
                 "field_type": "String",
-                "description": "Title of the game"
+                "description": "Title of the game",
+                "required": true
             },
             {
                 "field": "description",
                 "field_type": "String",
-                "description": "Description of the game"
+                "description": "Description of the game",
+                "required": true
             },
             {
                 "field": "photo",
                 "field_type": "Array of PhotoSize",
-                "description": "Photo that will be displayed in the game message in chats."
+                "description": "Photo that will be displayed in the game message in chats.",
+                "required": true
             },
             {
                 "field": "text",
                 "field_type": "String",
-                "description": "Optional. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls setGameScore, or manually edited using editMessageText. 0-4096 characters."
+                "description": "Optional. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls setGameScore, or manually edited using editMessageText. 0-4096 characters.",
+                "required": false
             },
             {
                 "field": "text_entities",
                 "field_type": "Array of MessageEntity",
-                "description": "Optional. Special entities that appear in text, such as usernames, URLs, bot commands, etc."
+                "description": "Optional. Special entities that appear in text, such as usernames, URLs, bot commands, etc.",
+                "required": false
             },
             {
                 "field": "animation",
                 "field_type": "Animation",
-                "description": "Optional. Animation that will be displayed in the game message in chats. Upload via BotFather"
+                "description": "Optional. Animation that will be displayed in the game message in chats. Upload via BotFather",
+                "required": false
             }
         ]
     },
@@ -2748,27 +3212,32 @@
             {
                 "field": "file_id",
                 "field_type": "String",
-                "description": "Unique file identifier"
+                "description": "Unique file identifier",
+                "required": true
             },
             {
                 "field": "thumb",
                 "field_type": "PhotoSize",
-                "description": "Optional. Animation thumbnail as defined by sender"
+                "description": "Optional. Animation thumbnail as defined by sender",
+                "required": false
             },
             {
                 "field": "file_name",
                 "field_type": "String",
-                "description": "Optional. Original animation filename as defined by sender"
+                "description": "Optional. Original animation filename as defined by sender",
+                "required": false
             },
             {
                 "field": "mime_type",
                 "field_type": "String",
-                "description": "Optional. MIME type of the file as defined by sender"
+                "description": "Optional. MIME type of the file as defined by sender",
+                "required": false
             },
             {
                 "field": "file_size",
                 "field_type": "Integer",
-                "description": "Optional. File size"
+                "description": "Optional. File size",
+                "required": false
             }
         ]
     },
@@ -2784,17 +3253,20 @@
             {
                 "field": "position",
                 "field_type": "Integer",
-                "description": "Position in high score table for the game"
+                "description": "Position in high score table for the game",
+                "required": true
             },
             {
                 "field": "user",
                 "field_type": "User",
-                "description": "User"
+                "description": "User",
+                "required": true
             },
             {
                 "field": "score",
                 "field_type": "Integer",
-                "description": "Score"
+                "description": "Score",
+                "required": true
             }
         ]
     }

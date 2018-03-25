@@ -17,6 +17,6 @@ typedef $$appendHx(::name::) = {::foreach fields::
     /*
      *	::description::
      */
-    ::field::: $$getBaseType(::field_type::),::end::
+    ::if !required::?::end::::field::: $$getBaseType(::field_type::),::end::
 }
 ::end::
