@@ -1,0 +1,37 @@
+-cp ..
+-D analyzer-optimize
+# -D haxeJSON
+-main EchoBot
+-dce no
+# --interp
+-debug
+
+--each
+
+-D nodejs
+-lib hxnodejs
+-js ../output/js/echobot.js
+
+--next
+
+-neko ../output/neko/echobot.n
+
+--next
+
+-php ../output/php/echobot
+
+--next
+
+-java ../output/java/echobot
+
+--next
+
+-hl ../output/hl/echobot.hl
+
+--next
+
+-cpp ../output/cpp/echobot
+
+--next
+
+-cmd echo Echo bot example compiled

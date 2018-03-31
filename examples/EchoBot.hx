@@ -2,7 +2,7 @@ import telehx.TeleHxBot;
 import telehx.TeleHxTypes;
 using telehx.TeleHxMethods;
 
-class Main {
+class EchoBot {
     public function new() {
         trace("Testing bot");
         var token :String = sys.io.File.getContent('../token.txt');
@@ -33,6 +33,6 @@ class Main {
     }
 
     static function main() {
-        new Main();
+        new EchoBot();
     }
 }

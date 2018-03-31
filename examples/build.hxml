@@ -1,40 +1,8 @@
--cp ..
--D analyzer-optimize
-# -D haxeJSON
--main Main
--dce no
-# --interp
--debug
-
---each
-
--D nodejs
--lib hxnodejs
--js ../output/js/main.js
+build_echo_bot.hxml
 
 --next
 
--neko ../output/neko/main.n
-
---next
-
--php ../output/php
-
---next
-
--java ../output/java
-
---next
-
--hl ../output/hl/main.hl
-
---next
-
--hl ../output/c/main.c
-
---next
-
--cpp ../output/cpp
+build_webhook_example.hxml
 
 --next
 

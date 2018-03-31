@@ -1,0 +1,15 @@
+-cp ..
+-D analyzer-optimize
+# -D haxeJSON
+-main WebhookExample
+-dce no
+# --interp
+-debug
+
+--each
+
+-neko ../output/neko/webhook.n
+
+--next
+
+-cmd echo Webhook example compiled
