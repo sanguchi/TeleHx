@@ -1,15 +1,7 @@
--cp ..
--D analyzer-optimize
-# -D haxeJSON
 -main WebhookExample
--dce no
-# --interp
+-neko ../output/neko/webhook_bot.n
+-lib telehx
+-lib tink_http
+-lib tink_tcp
+-lib tink_runloop
 -debug
-
---each
-
--neko ../output/neko/webhook.n
-
---next
-
--cmd echo Webhook example compiled
